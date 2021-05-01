@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PESMVC.UI", "PESMVC.UI\PESMVC.UI.csproj", "{A5717A0A-0484-4914-BCC8-66B3E94E90D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PESMVC.Token.Auth", "PESMVC.Token.Auth\PESMVC.Token.Auth.csproj", "{4292C21E-39BF-4896-B6FE-D9991E4617C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PESMVC.Auth.Token.Manager", "PESMVC.Auth.Token.Manager\PESMVC.Auth.Token.Manager.csproj", "{A2D08E8D-B282-4BDC-AA35-EF2FFAD67E19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PESMVC.Auth.Token", "PESMVC.Auth.Token\PESMVC.Auth.Token.csproj", "{E1F0715D-5B7E-49AB-97B1-CC0B2A61E1E0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PESMVC.Exceptions", "PESMVC.Exceptions\PESMVC.Exceptions.csproj", "{592094F9-A08A-4D67-922D-AF23D330EA66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PESMVC.Data.Models", "PESMVC.Data.Models\PESMVC.Data.Models.csproj", "{1236D51B-36B2-42AA-9DC8-18EE0FCAB688}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5717A0A-0484-4914-BCC8-66B3E94E90D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5717A0A-0484-4914-BCC8-66B3E94E90D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5717A0A-0484-4914-BCC8-66B3E94E90D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5717A0A-0484-4914-BCC8-66B3E94E90D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4292C21E-39BF-4896-B6FE-D9991E4617C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4292C21E-39BF-4896-B6FE-D9991E4617C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4292C21E-39BF-4896-B6FE-D9991E4617C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4292C21E-39BF-4896-B6FE-D9991E4617C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D08E8D-B282-4BDC-AA35-EF2FFAD67E19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D08E8D-B282-4BDC-AA35-EF2FFAD67E19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D08E8D-B282-4BDC-AA35-EF2FFAD67E19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D08E8D-B282-4BDC-AA35-EF2FFAD67E19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1F0715D-5B7E-49AB-97B1-CC0B2A61E1E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1F0715D-5B7E-49AB-97B1-CC0B2A61E1E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1F0715D-5B7E-49AB-97B1-CC0B2A61E1E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1F0715D-5B7E-49AB-97B1-CC0B2A61E1E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{592094F9-A08A-4D67-922D-AF23D330EA66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{592094F9-A08A-4D67-922D-AF23D330EA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{592094F9-A08A-4D67-922D-AF23D330EA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{592094F9-A08A-4D67-922D-AF23D330EA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1236D51B-36B2-42AA-9DC8-18EE0FCAB688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1236D51B-36B2-42AA-9DC8-18EE0FCAB688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1236D51B-36B2-42AA-9DC8-18EE0FCAB688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1236D51B-36B2-42AA-9DC8-18EE0FCAB688}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B3227714-3E36-445D-B55D-6F728AEA57A0}
+	EndGlobalSection
+EndGlobal
