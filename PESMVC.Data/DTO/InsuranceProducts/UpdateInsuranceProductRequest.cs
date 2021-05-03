@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PESMVC.Auth.Token
+namespace PESMVC.Data.DTO.InsuranceProducts
 {
-    class Program
+    public class UpdateInsuranceProductRequest
     {
-        static void Main(string[] args)
-        {
-        }
+
     }
 }

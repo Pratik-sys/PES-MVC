@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Routing;
 
-namespace PESMVC.Token.Auth
+namespace PESMVC.Auth.Token
 {
     public class WebApiApplication : System.Web.HttpApplication
     {

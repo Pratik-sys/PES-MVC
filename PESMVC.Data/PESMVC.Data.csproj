@@ -56,43 +56,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminLoginCredential.cs">
+    <Compile Include="DTO\InsuranceProducts\CreateInsuranceProductRequest.cs" />
+    <Compile Include="DTO\InsuranceProducts\UpdateInsuranceProductRequest.cs" />
+    <Compile Include="Models\AdminLoginCredential.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="Customer.cs">
+    <Compile Include="Models\Customer.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="CustomerLoginCredential.cs">
+    <Compile Include="Models\CustomerLoginCredential.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="Document.cs">
+    <Compile Include="Models\Document.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="Endorsement.cs">
+    <Compile Include="Models\Endorsement.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="EndorsementStatu.cs">
+    <Compile Include="Models\EndorsementStatu.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="InsuranceProduct.cs">
+    <Compile Include="Models\InsuranceProduct.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="PES.Context.cs">
+    <Compile Include="Models\PES.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PES.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="PES.cs">
+    <Compile Include="Models\PES.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="PES.Designer.cs">
+    <Compile Include="Models\PES.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PES.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Policy.cs">
+    <Compile Include="Models\Policy.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -100,22 +102,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="PES.edmx">
+    <EntityDeploy Include="Models\PES.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PES.Designer.cs</LastGenOutput>
     </EntityDeploy>
     <None Include="packages.config" />
-    <None Include="PES.edmx.diagram">
+    <None Include="Models\PES.edmx.diagram">
       <DependentUpon>PES.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PES.Context.tt">
+    <Content Include="Models\PES.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>PES.Context.cs</LastGenOutput>
       <DependentUpon>PES.edmx</DependentUpon>
     </Content>
-    <Content Include="PES.tt">
+    <Content Include="Models\PES.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>PES.edmx</DependentUpon>
       <LastGenOutput>PES.cs</LastGenOutput>

@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PESMVC.Exceptions")]
+[assembly: AssemblyTitle("PESMVC.Data")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("PESMVC.Exceptions")]
+[assembly: AssemblyProduct("PESMVC.Data")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("592094f9-a08a-4d67-922d-af23d330ea66")]
+[assembly: Guid("1236d51b-36b2-42aa-9dc8-18ee0fcab688")]
 
 // Version information for an assembly consists of the following four values:
 //

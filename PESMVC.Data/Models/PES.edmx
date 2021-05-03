@@ -532,6 +532,10 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <End Role="Policy" EntitySet="Policies" />
             <End Role="EndorsementStatus" EntitySet="EndorsementStatus" />
           </AssociationSet>
+          <FunctionImport Name="createInsuranceProduct">
+            <Parameter Name="productName" Mode="In" Type="String" />
+            <Parameter Name="productLine" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -624,6 +628,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="createInsuranceProduct" FunctionName="PESDBModel.Store.uspInsertInsuranceProduct" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

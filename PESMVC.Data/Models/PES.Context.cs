@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PESMVC.Data.Models
+namespace PESMVC.Data.Models.Models
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class PES_TestEntities : DbContext
     {
@@ -33,5 +35,18 @@ namespace PESMVC.Data.Models
         public virtual DbSet<Policy> Policies { get; set; }
         public virtual DbSet<Document> Documents { get; set; }
         public virtual DbSet<EndorsementStatu> EndorsementStatus { get; set; }
+    
+        public virtual int createInsuranceProduct(string productName, string productLine)
+        {
+            var productNameParameter = productName != null ?
+                new ObjectParameter("productName", productName) :
+                new ObjectParameter("productName", typeof(string));
+    
+            var productLineParameter = productLine != null ?
+                new ObjectParameter("productLine", productLine) :
+                new ObjectParameter("productLine", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("createInsuranceProduct", productNameParameter, productLineParameter);
+        }
     }
 }

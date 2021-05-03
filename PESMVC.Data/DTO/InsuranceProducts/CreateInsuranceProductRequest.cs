@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PESMVC.Data.Models.DTO.InsuranceProducts
+namespace PESMVC.Data.DTO.InsuranceProducts
 {
     public class CreateInsuranceProductRequest
     {
