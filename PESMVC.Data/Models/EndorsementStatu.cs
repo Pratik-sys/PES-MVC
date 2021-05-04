@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PESMVC.Data.Models.Models
+namespace PESMVC.Data.Models
 {
     using System;
     using System.Collections.Generic;
