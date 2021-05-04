@@ -1,4 +1,5 @@
-﻿using PESMVC.Data.Models.DTO.Customer;
+﻿using PESMVC.Data.Models;
+using PESMVC.Data.DTO.Customer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,10 +11,14 @@ namespace PESMVC.API.Interface
     public interface ICustomerService
     {
         bool CreateCustomer(CreateCustomerRequest createCustomerRequest);
-        bool DeleteCustomer(DeleteCustomerRequest deleteCustomerRequest);
+
+        bool DeleteCustomer(string id);
+
         IQueryable GetAllCustomer(GetAllCustomersResponse getAllCustomersResponse);
-        bool SerarchCustomerById(SearchCustomerByIdRequest searchCustomerByIdRequest);
-        bool SearchCustomerByNameAndDobRequest(SearchCustomerByNameAndDobRequest searchCustomerByNameAndDob);
+
+        Customer SerarchCustomerById(string id, SearchCustomerByIdResponse searchCustomerByIdRequest);
+
+        Customer SearchCustomerByNameAndDobRequest(string name, DateTime DOB, SearchCustomerByNameAndDobResponse searchCustomerByNameAndDob);
 
     }
 }
