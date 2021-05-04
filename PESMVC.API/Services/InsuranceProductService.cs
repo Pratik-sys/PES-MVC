@@ -1,7 +1,6 @@
 ﻿using PESMVC.API.Interface;
 using PESMVC.Data.DTO.InsuranceProducts;
 using PESMVC.Data.Models;
-using PESMVC.Data.Models.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

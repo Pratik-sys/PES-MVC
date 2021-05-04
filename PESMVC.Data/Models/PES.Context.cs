@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PESMVC.Data.Models.Models
+namespace PESMVC.Data.Models
 {
     using System;
     using System.Data.Entity;
@@ -49,23 +49,6 @@ namespace PESMVC.Data.Models.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("createInsuranceProduct", productNameParameter, productLineParameter);
         }
     
-        public virtual int updateInsuranceProduct(string productId, string productName, string productLine)
-        {
-            var productIdParameter = productId != null ?
-                new ObjectParameter("productId", productId) :
-                new ObjectParameter("productId", typeof(string));
-    
-            var productNameParameter = productName != null ?
-                new ObjectParameter("productName", productName) :
-                new ObjectParameter("productName", typeof(string));
-    
-            var productLineParameter = productLine != null ?
-                new ObjectParameter("productLine", productLine) :
-                new ObjectParameter("productLine", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateInsuranceProduct", productIdParameter, productNameParameter, productLineParameter);
-        }
-    
         public virtual int deleteInsuranceProduct(string insuranceId)
         {
             var insuranceIdParameter = insuranceId != null ?
@@ -73,6 +56,16 @@ namespace PESMVC.Data.Models.Models
                 new ObjectParameter("insuranceId", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteInsuranceProduct", insuranceIdParameter);
+        }
+    
+        public virtual ObjectResult<InsuranceProduct> getAllInsuranceProduct()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getAllInsuranceProduct");
+        }
+    
+        public virtual ObjectResult<InsuranceProduct> getAllInsuranceProduct(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getAllInsuranceProduct", mergeOption);
         }
     
         public virtual ObjectResult<InsuranceProduct> getInsuranceProductById(string insuranceId)
@@ -93,14 +86,21 @@ namespace PESMVC.Data.Models.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getInsuranceProductById", mergeOption, insuranceIdParameter);
         }
     
-        public virtual ObjectResult<InsuranceProduct> getAllInsuranceProduct()
+        public virtual int updateInsuranceProduct(string productId, string productName, string productLine)
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getAllInsuranceProduct");
-        }
+            var productIdParameter = productId != null ?
+                new ObjectParameter("productId", productId) :
+                new ObjectParameter("productId", typeof(string));
     
-        public virtual ObjectResult<InsuranceProduct> getAllInsuranceProduct(MergeOption mergeOption)
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getAllInsuranceProduct", mergeOption);
+            var productNameParameter = productName != null ?
+                new ObjectParameter("productName", productName) :
+                new ObjectParameter("productName", typeof(string));
+    
+            var productLineParameter = productLine != null ?
+                new ObjectParameter("productLine", productLine) :
+                new ObjectParameter("productLine", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateInsuranceProduct", productIdParameter, productNameParameter, productLineParameter);
         }
     }
 }

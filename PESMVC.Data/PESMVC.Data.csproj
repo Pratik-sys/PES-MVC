@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1236D51B-36B2-42AA-9DC8-18EE0FCAB688}</ProjectGuid>
+    <ProjectGuid>{961406B2-565F-4F0A-9D8E-4982BC4FE2F9}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>PESMVC.Data.Models</RootNamespace>
-    <AssemblyName>PESMVC.Data.Models</AssemblyName>
+    <RootNamespace>PESMVC.Data</RootNamespace>
+    <AssemblyName>PESMVC.Data</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -69,10 +68,10 @@
     <Compile Include="DTO\InsuranceProducts\UpdateInsuranceProductRequest.cs" />
     <Compile Include="DTO\Policy\ApplyForPolicyRequest.cs" />
     <Compile Include="DTO\Policy\GetAllPolicyResponse.cs" />
+    <Compile Include="DTO\Policy\GetPolicyByCustomerIdAndPolicyNumberResponse.cs" />
     <Compile Include="DTO\Policy\GetPolicyByCustomerIdReponse.cs" />
     <Compile Include="DTO\Policy\GetPolicyByCustomerNameAndDobResponse.cs" />
     <Compile Include="DTO\Policy\GetPolicyByPolicyNumberResponse.cs" />
-    <Compile Include="DTO\Policy\GetPolicyByCustomerIdAndPolicyNumberResponse.cs" />
     <Compile Include="DTO\Policy\UpdatePolicyRequest.cs" />
     <Compile Include="DTO\Policy\ViewPolicyResponse.cs" />
     <Compile Include="Models\AdminLoginCredential.cs">
@@ -114,7 +113,6 @@
     <Compile Include="Models\Policy.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -123,11 +121,12 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>PES.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="packages.config" />
     <None Include="Models\PES.edmx.diagram">
       <DependentUpon>PES.edmx</DependentUpon>
     </None>
+    <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\PES.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
