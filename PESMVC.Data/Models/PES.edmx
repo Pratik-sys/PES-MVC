@@ -544,9 +544,10 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <FunctionImport Name="deleteInsuranceProduct">
             <Parameter Name="insuranceId" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="searchInsuranceProductById" EntitySet="InsuranceProducts" ReturnType="Collection(PESDBModel.InsuranceProduct)">
+          <FunctionImport Name="getInsuranceProductById" EntitySet="InsuranceProducts" ReturnType="Collection(PESDBModel.InsuranceProduct)">
             <Parameter Name="insuranceId" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="getAllInsuranceProduct" EntitySet="InsuranceProducts" ReturnType="Collection(PESDBModel.InsuranceProduct)" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -642,7 +643,8 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <FunctionImportMapping FunctionImportName="createInsuranceProduct" FunctionName="PESDBModel.Store.uspInsertInsuranceProduct" />
           <FunctionImportMapping FunctionImportName="updateInsuranceProduct" FunctionName="PESDBModel.Store.uspUpdateInsuranceProduct" />
           <FunctionImportMapping FunctionImportName="deleteInsuranceProduct" FunctionName="PESDBModel.Store.uspDeleteInsuranceProduct" />
-          <FunctionImportMapping FunctionImportName="searchInsuranceProductById" FunctionName="PESDBModel.Store.uspSearchInsuranceProduct" />
+          <FunctionImportMapping FunctionImportName="getInsuranceProductById" FunctionName="PESDBModel.Store.uspSearchInsuranceProduct" />
+          <FunctionImportMapping FunctionImportName="getAllInsuranceProduct" FunctionName="PESDBModel.Store.uspDisplayInsuranceProducts" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

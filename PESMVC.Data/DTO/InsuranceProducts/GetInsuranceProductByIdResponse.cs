@@ -8,6 +8,7 @@ namespace PESMVC.Data.DTO.InsuranceProducts
 {
     public class GetInsuranceProductByIdResponse
     {
+        public string productId { get; set; }
 
         public string productName { get; set; }
 

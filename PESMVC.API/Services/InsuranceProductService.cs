@@ -56,12 +56,44 @@ namespace PESMVC.API.Services
 
         public List<GetAllInsuranceProductsResponse> GetAllInsuranceProduct()
         {
-            throw new NotImplementedException();
+            List<GetAllInsuranceProductsResponse> result = new List<GetAllInsuranceProductsResponse>();
+            GetAllInsuranceProductsResponse product = null;
+            try
+            {
+                var insuranceProduct = _dbContext.getAllInsuranceProduct();
+                foreach (var iP in insuranceProduct)
+                {
+                    product = new GetAllInsuranceProductsResponse();
+                    product.productId = iP.productId;
+                    product.productName = iP.productName;
+                    product.productLine = iP.productLine;
+                    result.Add(product);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return result;
         }
 
         public GetInsuranceProductByIdResponse GetInsuranceProductById(string id)
         {
-            throw new NotImplementedException();
+            GetInsuranceProductByIdResponse result = new GetInsuranceProductByIdResponse();
+            try
+            {
+                var insuranceProduct = _dbContext.getInsuranceProductById(id);
+                foreach(var product in insuranceProduct)
+                {
+                    result.productId = product.productId;
+                    result.productName = product.productName;
+                    result.productLine = product.productLine;
+                }
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return result;
         }
 
         public bool UpdateInsuranceProduct(UpdateInsuranceProductRequest insuranceProductRequest)

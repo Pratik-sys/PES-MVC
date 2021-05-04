@@ -75,22 +75,32 @@ namespace PESMVC.Data.Models.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteInsuranceProduct", insuranceIdParameter);
         }
     
-        public virtual ObjectResult<InsuranceProduct> searchInsuranceProductById(string insuranceId)
+        public virtual ObjectResult<InsuranceProduct> getInsuranceProductById(string insuranceId)
         {
             var insuranceIdParameter = insuranceId != null ?
                 new ObjectParameter("insuranceId", insuranceId) :
                 new ObjectParameter("insuranceId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("searchInsuranceProductById", insuranceIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getInsuranceProductById", insuranceIdParameter);
         }
     
-        public virtual ObjectResult<InsuranceProduct> searchInsuranceProductById(string insuranceId, MergeOption mergeOption)
+        public virtual ObjectResult<InsuranceProduct> getInsuranceProductById(string insuranceId, MergeOption mergeOption)
         {
             var insuranceIdParameter = insuranceId != null ?
                 new ObjectParameter("insuranceId", insuranceId) :
                 new ObjectParameter("insuranceId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("searchInsuranceProductById", mergeOption, insuranceIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getInsuranceProductById", mergeOption, insuranceIdParameter);
+        }
+    
+        public virtual ObjectResult<InsuranceProduct> getAllInsuranceProduct()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getAllInsuranceProduct");
+        }
+    
+        public virtual ObjectResult<InsuranceProduct> getAllInsuranceProduct(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("getAllInsuranceProduct", mergeOption);
         }
     }
 }

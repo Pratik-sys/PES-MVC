@@ -54,5 +54,34 @@ namespace PESMVC.API.Controllers
             return Ok(message);
         }
 
+        [HttpGet] 
+        public GetInsuranceProductByIdResponse GetInsuranceProduct(string id)
+        {
+            var result = new GetInsuranceProductByIdResponse();
+            try
+            {
+                result = _insuranceProductService.GetInsuranceProductById(id);
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return result;
+        }
+
+        [HttpGet]
+        public List<GetAllInsuranceProductsResponse> GetAllInsuranceProducts()
+        {
+            var result = new List<GetAllInsuranceProductsResponse>();
+            try
+            {
+                result = _insuranceProductService.GetAllInsuranceProduct();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return result;
+        }
     }
 }
