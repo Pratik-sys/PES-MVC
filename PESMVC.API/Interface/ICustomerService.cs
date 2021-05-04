@@ -14,11 +14,11 @@ namespace PESMVC.API.Interface
 
         bool DeleteCustomer(string id);
 
-        IQueryable GetAllCustomer(GetAllCustomersResponse getAllCustomersResponse);
+        List<GetAllCustomersResponse> GetAllCustomer();
 
-        Customer SerarchCustomerById(string id, SearchCustomerByIdResponse searchCustomerByIdRequest);
+        GetCustomerByIdResponse GetCustomerById(string id);
 
-        Customer SearchCustomerByNameAndDobRequest(string name, DateTime DOB, SearchCustomerByNameAndDobResponse searchCustomerByNameAndDob);
+        GetCustomerByNameAndDobResponse SearchCustomerByNameAndDobRequest(string name, DateTime DOB);
 
     }
 }

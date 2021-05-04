@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace PESMVC.Data.DTO.Policy
 {
-    public class SearchByCustomerIdResponse
+    public class GetPolicyByCustomerIdAndPolicyNumberResponse
     {
-        public int Id { get; set; }
-        public string policyNumber { get; set; }
-        public string customerId { get; set; }
+
         public string productId { get; set; }
         public string policyNominee { get; set; }
         public string policyNomineeRelation { get; set; }

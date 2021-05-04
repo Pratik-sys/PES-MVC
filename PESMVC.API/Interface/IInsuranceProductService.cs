@@ -19,6 +19,5 @@ namespace PESMVC.API.Interface
         GetInsuranceProductByIdResponse GetInsuranceProductById(string id);
 
         List<GetAllInsuranceProductsResponse> GetAllInsuranceProduct();
-
     }
 }

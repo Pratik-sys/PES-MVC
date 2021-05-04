@@ -14,16 +14,16 @@ namespace PESMVC.API.Interface
 
         bool GetAllPolicy(GetAllPolicyResponse getAllPolicyResponse);
 
-        Policy SearchByCustomerId(string id, SearchByCustomerIdResponse searchByCustomerIdResponse);
+        List<GetPolicyByCustomerIdResponse> GetPolicyByCustomerId(string id);
 
-        Policy SearchByCustomerNameAndDob(string name,DateTime DOB, SearchByCustomerNameAndDobResponse searchByCustomerNameAndDob);
-        
-        Policy SearchByPolicyNumber(string policyNum, SearchByPolicyNumberResponse searchByCustomerIdRequest);
+        List<GetPolicyByCustomerNameAndDobResponse> GetPolicyByCustomerNameAndDob(string name,DateTime DOB);
 
-        Policy SearchPolicyByCustomerIdAndPolicyNumber(string custId, string policyNum, SearchPolicyByCustomerIdAndPolicyNumberResponse searchPolicyByCustomerIdAndPolicyNumber);
+        GetPolicyByPolicyNumberResponse GetPolicyByPolicyNumber(string policyNum);
+
+        GetPolicyByCustomerIdAndPolicyNumberResponse GetPolicyByCustomerIdAndPolicyNumber(string custId, string policyNum);
 
         bool UpdatePolicy(UpdatePolicyRequest updatePolicyRequest);
 
-        IQueryable ViewPolicy(ViewPolicyResponse viewPolicyResponse);
+        ViewPolicyResponse ViewPolicy(string id);
     }
 }
