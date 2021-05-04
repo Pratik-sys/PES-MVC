@@ -544,7 +544,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <FunctionImport Name="deleteInsuranceProduct">
             <Parameter Name="insuranceId" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="searchInsuranceProductById" EntitySet="Endorsements" ReturnType="Collection(PESDBModel.Endorsement)">
+          <FunctionImport Name="searchInsuranceProductById" EntitySet="InsuranceProducts" ReturnType="Collection(PESDBModel.InsuranceProduct)">
             <Parameter Name="insuranceId" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>

@@ -75,22 +75,22 @@ namespace PESMVC.Data.Models.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteInsuranceProduct", insuranceIdParameter);
         }
     
-        public virtual ObjectResult<Endorsement> searchInsuranceProductById(string insuranceId)
+        public virtual ObjectResult<InsuranceProduct> searchInsuranceProductById(string insuranceId)
         {
             var insuranceIdParameter = insuranceId != null ?
                 new ObjectParameter("insuranceId", insuranceId) :
                 new ObjectParameter("insuranceId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Endorsement>("searchInsuranceProductById", insuranceIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("searchInsuranceProductById", insuranceIdParameter);
         }
     
-        public virtual ObjectResult<Endorsement> searchInsuranceProductById(string insuranceId, MergeOption mergeOption)
+        public virtual ObjectResult<InsuranceProduct> searchInsuranceProductById(string insuranceId, MergeOption mergeOption)
         {
             var insuranceIdParameter = insuranceId != null ?
                 new ObjectParameter("insuranceId", insuranceId) :
                 new ObjectParameter("insuranceId", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Endorsement>("searchInsuranceProductById", mergeOption, insuranceIdParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<InsuranceProduct>("searchInsuranceProductById", mergeOption, insuranceIdParameter);
         }
     }
 }

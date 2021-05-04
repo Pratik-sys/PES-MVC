@@ -39,18 +39,12 @@ namespace PESMVC.API.Services
             return flag;
         }
 
-        public bool DeleteInsuranceProduct(DeleteInsuranceProductRequest insuranceProductRequest)
+        public bool DeleteInsuranceProduct(string id)
         {
             bool flag = false;
             try
             {
-                var insuranceProduct = new InsuranceProduct
-                {
-                    productId = insuranceProductRequest.productId,
-                };
-
-                _dbContext.deleteInsuranceProduct(insuranceProduct.productId);
-
+                _dbContext.deleteInsuranceProduct(id);
                 flag = true;
             }
             catch (Exception ex)
@@ -58,6 +52,16 @@ namespace PESMVC.API.Services
                 Console.WriteLine(ex.Message);
             }
             return flag;
+        }
+
+        public List<GetAllInsuranceProductsResponse> GetAllInsuranceProduct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public GetInsuranceProductByIdResponse GetInsuranceProductById(string id)
+        {
+            throw new NotImplementedException();
         }
 
         public bool UpdateInsuranceProduct(UpdateInsuranceProductRequest insuranceProductRequest)

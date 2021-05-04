@@ -62,6 +62,7 @@
     <Compile Include="DTO\Customer\SearchCustomerByIdRequest.cs" />
     <Compile Include="DTO\Customer\SearchCustomerByNameAndDobRequest.cs" />
     <Compile Include="DTO\InsuranceProducts\CreateInsuranceProductRequest.cs" />
+    <Compile Include="DTO\InsuranceProducts\GetAllInsuranceProductsResponse.cs" />
     <Compile Include="DTO\InsuranceProducts\GetInsuranceProductByIdResponse.cs" />
     <Compile Include="DTO\InsuranceProducts\UpdateInsuranceProductRequest.cs" />
     <Compile Include="DTO\Policy\ApplyForPolicyRequest.cs" />

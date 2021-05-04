@@ -16,6 +16,9 @@ namespace PESMVC.API.Interface
 
         bool DeleteInsuranceProduct(string id);
 
-        InsuranceProduct SearchInsuranceProductById(string id, GetInsuranceProductByIdResponse insuranceProductResponse);
+        GetInsuranceProductByIdResponse GetInsuranceProductById(string id);
+
+        List<GetAllInsuranceProductsResponse> GetAllInsuranceProduct();
+
     }
 }

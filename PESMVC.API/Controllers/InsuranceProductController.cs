@@ -41,12 +41,15 @@ namespace PESMVC.API.Controllers
         }
     
         [HttpDelete]
-        public IHttpActionResult DeleteInsuranceProduct([FromBody] DeleteInsuranceProductRequest insuranceProductRequest)
+        public IHttpActionResult DeleteInsuranceProduct(string id)
         {
             string message = "Failed";
-            if (_insuranceProductService.DeleteInsuranceProduct(insuranceProductRequest))
+            if(id != null)
             {
-                message = "Success";
+                if (_insuranceProductService.DeleteInsuranceProduct(id))
+                {
+                    message = "Success";
+                }
             }
             return Ok(message);
         }
