@@ -57,10 +57,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Customer\CreateCustomerRequest.cs" />
-    <Compile Include="DTO\Customer\DeleteCustomerRequest.cs" />
     <Compile Include="DTO\Customer\GetAllCustomersResponse.cs" />
-    <Compile Include="DTO\Customer\SearchCustomerByIdRequest.cs" />
-    <Compile Include="DTO\Customer\SearchCustomerByNameAndDobRequest.cs" />
+    <Compile Include="DTO\Customer\SearchCustomerByIdResponse.cs" />
+    <Compile Include="DTO\Customer\SearchCustomerByNameAndDobResponse.cs" />
     <Compile Include="DTO\Endorsement\EndorsementApprovalRequest.cs" />
     <Compile Include="DTO\Endorsement\GetAllEndorsementsRespone.cs" />
     <Compile Include="DTO\Endorsement\GetAllEndorsementsStatusResponse.cs" />
@@ -69,12 +68,12 @@
     <Compile Include="DTO\InsuranceProducts\UpdateInsuranceProductRequest.cs" />
     <Compile Include="DTO\Policy\ApplyForPolicyRequest.cs" />
     <Compile Include="DTO\Policy\GetAllPolicyResponse.cs" />
-    <Compile Include="DTO\Policy\SearchByCustomerIdRequest.cs" />
-    <Compile Include="DTO\Policy\SearchByCustomerNameAndDobRequest.cs" />
-    <Compile Include="DTO\Policy\SearchByPolicyNumberRequest.cs" />
-    <Compile Include="DTO\Policy\SearchPolicyByCustomerIdAndPolicyNumberRequest.cs" />
+    <Compile Include="DTO\Policy\SearchByCustomerIdReponse.cs" />
+    <Compile Include="DTO\Policy\SearchByCustomerNameAndDobResponse.cs" />
+    <Compile Include="DTO\Policy\SearchByPolicyNumberResponse.cs" />
+    <Compile Include="DTO\Policy\SearchPolicyByCustomerIdAndPolicyNumberResponse.cs" />
     <Compile Include="DTO\Policy\UpdatePolicyRequest.cs" />
-    <Compile Include="DTO\Policy\ViewPolicyRequest.cs" />
+    <Compile Include="DTO\Policy\ViewPolicyResponse.cs" />
     <Compile Include="Models\AdminLoginCredential.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>

@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PESMVC.Data.Models.DTO.Endorsement
+namespace PESMVC.Data.DTO.Endorsement
 {
-    class GetAllEndorsementsRespone
+    public class GetAllEndorsementsRespone
     {
         [Required]
         public string endorsementId { get; set; }

@@ -1,26 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PESMVC.Data.DTO.Policy
 {
-    public class ApplyForPolicyRequest
+    public class SearchPolicyByCustomerIdAndPolicyNumberResponse
     {
-        [Required]
-        public string customerId { get; set; }
-        [Required]
-        public string productId { get; set; }
-        [Required]
-        public string policyNominee { get; set; }
-        [Required]
-        public string policyNomineeRelation { get; set; }
-        [Required]
-        public string policyPremiumPaymentFrequency { get; set; }
-        [Required]
-        public string filePath { get; set; }
 
+        public string productId { get; set; }
+        public string policyNominee { get; set; }
+        public string policyNomineeRelation { get; set; }
+        public string policyPremiumPaymentFrequency { get; set; }
+        public string filePath { get; set; }
     }
 }
