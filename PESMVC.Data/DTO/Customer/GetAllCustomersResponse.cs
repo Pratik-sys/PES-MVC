@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PESMVC.Data.Models.DTO.Customer
+namespace PESMVC.Data.DTO.Customer
 {
     public class GetAllCustomersResponse
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PESMVC.Data.Models.DTO.Policy
+namespace PESMVC.Data.DTO.Policy
 {
     public class UpdatePolicyRequest
     {
