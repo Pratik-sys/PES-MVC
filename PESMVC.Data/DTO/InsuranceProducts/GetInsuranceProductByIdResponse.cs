@@ -7,14 +7,11 @@ using System.Threading.Tasks;
 
 namespace PESMVC.Data.DTO.InsuranceProducts
 {
-    public class UpdateInsuranceProductRequest
+    public class GetInsuranceProductByIdResponse
     {
         [Required]
-        public string productId { get; set; }
-
-        [Required]
         public string productName { get; set; }
-        
+
         [Required]
         public string productLine { get; set; }
     }

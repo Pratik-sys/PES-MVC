@@ -57,6 +57,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\InsuranceProducts\CreateInsuranceProductRequest.cs" />
+    <Compile Include="DTO\InsuranceProducts\GetInsuranceProductByIdResponse.cs" />
     <Compile Include="DTO\InsuranceProducts\UpdateInsuranceProductRequest.cs" />
     <Compile Include="Models\AdminLoginCredential.cs">
       <DependentUpon>PES.tt</DependentUpon>

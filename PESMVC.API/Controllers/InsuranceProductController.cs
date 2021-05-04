@@ -19,7 +19,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult PostInsuranceProduct([FromBody] CreateInsuranceProductRequest insuranceProductRequest)
+        public IHttpActionResult CreateInsuranceProduct([FromBody] CreateInsuranceProductRequest insuranceProductRequest)
         {
             string message = "Failed";
             if (_insuranceProductService.CreateInsuranceProduct(insuranceProductRequest))
@@ -28,5 +28,28 @@ namespace PESMVC.API.Controllers
             }
             return Ok(message);
         }
+
+        [HttpPut]
+        public IHttpActionResult UpdateInsuranceProduct([FromBody] UpdateInsuranceProductRequest insuranceProductRequest)
+        {
+            string message = "Failed";
+            if (_insuranceProductService.UpdateInsuranceProduct(insuranceProductRequest))
+            {
+                message = "Success";
+            }
+            return Ok(message);
+        }
+    
+        [HttpDelete]
+        public IHttpActionResult DeleteInsuranceProduct([FromBody] DeleteInsuranceProductRequest insuranceProductRequest)
+        {
+            string message = "Failed";
+            if (_insuranceProductService.DeleteInsuranceProduct(insuranceProductRequest))
+            {
+                message = "Success";
+            }
+            return Ok(message);
+        }
+
     }
 }

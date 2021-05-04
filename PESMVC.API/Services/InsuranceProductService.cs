@@ -38,5 +38,49 @@ namespace PESMVC.API.Services
             }
             return flag;
         }
+
+        public bool DeleteInsuranceProduct(DeleteInsuranceProductRequest insuranceProductRequest)
+        {
+            bool flag = false;
+            try
+            {
+                var insuranceProduct = new InsuranceProduct
+                {
+                    productId = insuranceProductRequest.productId,
+                };
+
+                _dbContext.deleteInsuranceProduct(insuranceProduct.productId);
+
+                flag = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return flag;
+        }
+
+        public bool UpdateInsuranceProduct(UpdateInsuranceProductRequest insuranceProductRequest)
+        {
+            bool flag = false;
+            try
+            {
+                var insuranceProduct = new InsuranceProduct
+                {
+                    productId = insuranceProductRequest.productId,
+                    productName = insuranceProductRequest.productName,
+                    productLine = insuranceProductRequest.productLine
+                };
+
+                _dbContext.updateInsuranceProduct(insuranceProduct.productId, insuranceProduct.productName, insuranceProduct.productLine);
+
+                flag = true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return flag;
+        }
     }
 }

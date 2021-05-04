@@ -48,5 +48,49 @@ namespace PESMVC.Data.Models.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("createInsuranceProduct", productNameParameter, productLineParameter);
         }
+    
+        public virtual int updateInsuranceProduct(string productId, string productName, string productLine)
+        {
+            var productIdParameter = productId != null ?
+                new ObjectParameter("productId", productId) :
+                new ObjectParameter("productId", typeof(string));
+    
+            var productNameParameter = productName != null ?
+                new ObjectParameter("productName", productName) :
+                new ObjectParameter("productName", typeof(string));
+    
+            var productLineParameter = productLine != null ?
+                new ObjectParameter("productLine", productLine) :
+                new ObjectParameter("productLine", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateInsuranceProduct", productIdParameter, productNameParameter, productLineParameter);
+        }
+    
+        public virtual int deleteInsuranceProduct(string insuranceId)
+        {
+            var insuranceIdParameter = insuranceId != null ?
+                new ObjectParameter("insuranceId", insuranceId) :
+                new ObjectParameter("insuranceId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteInsuranceProduct", insuranceIdParameter);
+        }
+    
+        public virtual ObjectResult<Endorsement> searchInsuranceProductById(string insuranceId)
+        {
+            var insuranceIdParameter = insuranceId != null ?
+                new ObjectParameter("insuranceId", insuranceId) :
+                new ObjectParameter("insuranceId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Endorsement>("searchInsuranceProductById", insuranceIdParameter);
+        }
+    
+        public virtual ObjectResult<Endorsement> searchInsuranceProductById(string insuranceId, MergeOption mergeOption)
+        {
+            var insuranceIdParameter = insuranceId != null ?
+                new ObjectParameter("insuranceId", insuranceId) :
+                new ObjectParameter("insuranceId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Endorsement>("searchInsuranceProductById", mergeOption, insuranceIdParameter);
+        }
     }
 }
