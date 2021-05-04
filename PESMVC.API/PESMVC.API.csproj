@@ -118,6 +118,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interface\ICustomerService.cs" />
     <Compile Include="Interface\IInsuranceProductService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\InsuranceProductService.cs" />
@@ -139,6 +140,9 @@
       <Project>{1236d51b-36b2-42aa-9dc8-18ee0fcab688}</Project>
       <Name>PESMVC.Data</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
