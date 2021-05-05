@@ -19,9 +19,9 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        public List<GetEndorsementsRespone> GetAllEndorsementsApi()
+        public List<GetEndorsementsResponse> GetAllEndorsementsApi()
         {
-            var result = new List<GetEndorsementsRespone>();
+            var result = new List<GetEndorsementsResponse>();
             try
             {
                 result = _endorsementService.GetAllEndorsements();

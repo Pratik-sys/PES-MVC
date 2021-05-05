@@ -19,9 +19,9 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        public List<GetAllPolicyResponse> GetAllPolicyApi()
+        public List<GetPolicyResponse> GetAllPolicyApi()
         {
-            var result = new List<GetAllPolicyResponse>();
+            var result = new List<GetPolicyResponse>();
             try
             {
                 result = _policyService.GetAllPolicy();
@@ -34,9 +34,9 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        public List<GetPolicyByCustomerIdResponse> GetPolicyByCustIdApi(string id)
+        public List<GetPolicyResponse> GetPolicyByCustIdApi(string id)
         {
-            var result = new List<GetPolicyByCustomerIdResponse>();
+            var result = new List<GetPolicyResponse>();
             try
             {
                 result = _policyService.GetPolicyByCustomerId(id);
@@ -49,9 +49,9 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        public List<GetPolicyByCustomerNameAndDobResponse> GetPolicyByCustNameAndDobApi(string name, DateTime DOB)
+        public List<GetPolicyResponse> GetPolicyByCustNameAndDobApi(string name, DateTime DOB)
         {
-            var result = new List<GetPolicyByCustomerNameAndDobResponse>();
+            var result = new List<GetPolicyResponse>();
             try
             {
                 result = _policyService.GetPolicyByCustomerNameAndDob(name, DOB);
@@ -64,9 +64,9 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        public GetPolicyByPolicyNumberResponse GetPolicyByPNApi(string policyNum)
+        public GetPolicyResponse GetPolicyByPNApi(string policyNum)
         {
-            var result = new GetPolicyByPolicyNumberResponse();
+            var result = new GetPolicyResponse();
             try
             {
                 result = _policyService.GetPolicyByPolicyNumber(policyNum);
@@ -79,9 +79,9 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        public GetPolicyByCustomerIdAndPolicyNumberResponse GetPolicyByCustIdAndpNApi(string custId, string policyNum)
+        public GetPolicyResponse GetPolicyByCustIdAndpNApi(string custId, string policyNum)
         {
-            var result = new GetPolicyByCustomerIdAndPolicyNumberResponse();
+            var result = new GetPolicyResponse();
             try
             {
                 result = _policyService.GetPolicyByCustomerIdAndPolicyNumber(custId, policyNum);

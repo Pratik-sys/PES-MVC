@@ -32,20 +32,21 @@ namespace PESMVC.API.Services
             return flag;
         }
 
-        public List<GetEndorsementsRespone> GetAllEndorsements()
+        
+        public List<GetEndorsementsResponse> GetAllEndorsements()
         {
-            List<GetEndorsementsRespone> result = new List<GetEndorsementsRespone>();
-            GetEndorsementsRespone endorsement = null;
+            List<GetEndorsementsResponse> result = new List<GetEndorsementsResponse>();
+            GetEndorsementsResponse endorsement = null;
             try
             {
                 var endorsements = _dbContext.getAllEndorsements();
                 foreach (var e in endorsements)
                 {
-                    endorsement = new GetEndorsementsRespone();
+                    endorsement = new GetEndorsementsResponse();
                     endorsement.endorsementId = e.endorsementId;
                     endorsement.policyNumber = e.policyNumber;
                     endorsement.FieldChanges = e.FieldChanges;
-                    endorsement.endorsementStatus = e.EndorsementStatus.ToString();
+                    endorsement.endorsementStatus = e.EndorsementStatus.FirstOrDefault().endorsementStatus;
                     result.Add(endorsement);
                 }
             }

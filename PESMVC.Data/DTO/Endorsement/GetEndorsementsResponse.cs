@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PESMVC.Data.DTO.Endorsement
 {
-    public class GetEndorsementsRespone
+    public class GetEndorsementsResponse
     {
         public string endorsementId { get; set; }
 

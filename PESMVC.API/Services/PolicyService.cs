@@ -43,16 +43,16 @@ namespace PESMVC.API.Services
             return flag;
         }
 
-        public List<GetAllPolicyResponse> GetAllPolicy()
+        public List<GetPolicyResponse> GetAllPolicy()
         {
-            List<GetAllPolicyResponse> result = new List<GetAllPolicyResponse>();
-            GetAllPolicyResponse policy = null;
+            List<GetPolicyResponse> result = new List<GetPolicyResponse>();
+            GetPolicyResponse policy = null;
             try
             {
                 var policies = _dbContext.getAllPolicy();
                 foreach (var p in policies)
                 {
-                    policy = new GetAllPolicyResponse();
+                    policy = new GetPolicyResponse();
                     policy.Id = p.Id;
                     policy.policyNumber = p.policyNumber;
                     policy.customerId = p.customerId;
@@ -71,16 +71,17 @@ namespace PESMVC.API.Services
             return result;
         }
 
-        public List<GetPolicyByCustomerIdResponse> GetPolicyByCustomerId(string id)
+        public List<GetPolicyResponse> GetPolicyByCustomerId(string id)
         {
-            List<GetPolicyByCustomerIdResponse> result = new List<GetPolicyByCustomerIdResponse>();
-            GetPolicyByCustomerIdResponse policy = null;
+            List<GetPolicyResponse> result = new List<GetPolicyResponse>();
+            GetPolicyResponse policy = null;
             try
             {
                 var policies = _dbContext.getPolicyByCustomerId(id);
                 foreach (var p in policies)
                 {
-                    policy = new GetPolicyByCustomerIdResponse();
+                    policy = new GetPolicyResponse();
+                    policy.customerId = p.customerId;
                     policy.policyNumber = p.policyNumber;
                     policy.productId = p.productId;
                     policy.policyNominee = p.policyNominee;
@@ -97,14 +98,16 @@ namespace PESMVC.API.Services
             return result;
         }
 
-        public GetPolicyByCustomerIdAndPolicyNumberResponse GetPolicyByCustomerIdAndPolicyNumber(string custId, string policyNum)
+        public GetPolicyResponse GetPolicyByCustomerIdAndPolicyNumber(string custId, string policyNum)
         {
-            GetPolicyByCustomerIdAndPolicyNumberResponse result = new GetPolicyByCustomerIdAndPolicyNumberResponse();
+            GetPolicyResponse result = new GetPolicyResponse();
             try
             {
                 var policies = _dbContext.getPolicyByCustomerIdAndPolicyNumber(custId, policyNum);
                 foreach (var p in policies)
                 {
+                    result.customerId = p.customerId;
+                    result.policyNumber = p.policyNumber;
                     result.productId = p.productId;
                     result.policyNominee = p.policyNominee;
                     result.policyNomineeRelation = p.policyNomineeRelation;
@@ -119,16 +122,16 @@ namespace PESMVC.API.Services
             return result;
         }
 
-        public List<GetPolicyByCustomerNameAndDobResponse> GetPolicyByCustomerNameAndDob(string name, DateTime DOB)
+        public List<GetPolicyResponse> GetPolicyByCustomerNameAndDob(string name, DateTime DOB)
         {
-            List<GetPolicyByCustomerNameAndDobResponse> result = new List<GetPolicyByCustomerNameAndDobResponse>();
-            GetPolicyByCustomerNameAndDobResponse policy = null;
+            List<GetPolicyResponse> result = new List<GetPolicyResponse>();
+            GetPolicyResponse policy = null;
             try
             {
                 var policies = _dbContext.getPolicyByCustomerNameAndDob(name, DOB);
                 foreach (var p in policies)
                 {
-                    policy = new GetPolicyByCustomerNameAndDobResponse();
+                    policy = new GetPolicyResponse();
                     policy.policyNumber = p.policyNumber;
                     policy.customerId = p.customerId;
                     policy.productId = p.productId;
@@ -146,15 +149,16 @@ namespace PESMVC.API.Services
             return result;
         }
 
-        public GetPolicyByPolicyNumberResponse GetPolicyByPolicyNumber(string policyNum)
+        public GetPolicyResponse GetPolicyByPolicyNumber(string policyNum)
         {
-            GetPolicyByPolicyNumberResponse result = new GetPolicyByPolicyNumberResponse();
+            GetPolicyResponse result = new GetPolicyResponse();
             try
             {
                 var policies = _dbContext.getPolicyByPolicyNumber(policyNum);
                 foreach (var p in policies)
                 {
                     result.customerId = p.customerId;
+                    result.policyNumber = p.policyNumber;
                     result.productId = p.productId;
                     result.policyNominee = p.policyNominee;
                     result.policyNomineeRelation = p.policyNomineeRelation;
