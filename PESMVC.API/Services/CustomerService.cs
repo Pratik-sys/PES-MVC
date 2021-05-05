@@ -39,7 +39,7 @@ namespace PESMVC.API.Services
             {
                 Console.WriteLine(ex.Message);
             }
-            return value;
+            return customerId.Value.ToString();
         }
 
         public bool DeleteCustomer(string id)
