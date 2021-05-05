@@ -400,7 +400,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <Property Name="document1" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Endorsement" Relationship="Self.FK__Documents__endor__4222D4EF" FromRole="Documents" ToRole="Endorsements" />
         </EntityType>
-        <EntityType Name="EndorsementStatu">
+        <EntityType Name="EndorsementStatus">
           <Key>
             <PropertyRef Name="Id" />
             <PropertyRef Name="endorsementStatus" />
@@ -450,7 +450,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
         </Association>
         <Association Name="FK__Endorseme__endor__2DE6D218">
           <End Role="Endorsements" Type="Self.Endorsement" Multiplicity="0..1" />
-          <End Role="EndorsementStatus" Type="Self.EndorsementStatu" Multiplicity="*" />
+          <End Role="EndorsementStatus" Type="PES_TestModel.EndorsementStatus" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Endorsements">
               <PropertyRef Name="endorsementId" />
@@ -486,7 +486,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
         </Association>
         <Association Name="FK__Endorseme__polic__2EDAF651">
           <End Role="Policy" Type="Self.Policy" Multiplicity="0..1" />
-          <End Role="EndorsementStatus" Type="Self.EndorsementStatu" Multiplicity="*" />
+          <End Role="EndorsementStatus" Type="PES_TestModel.EndorsementStatus" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Policy">
               <PropertyRef Name="policyNumber" />
@@ -504,7 +504,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <EntitySet Name="InsuranceProducts" EntityType="Self.InsuranceProduct" />
           <EntitySet Name="Policies" EntityType="Self.Policy" />
           <EntitySet Name="Documents" EntityType="Self.Document" />
-          <EntitySet Name="EndorsementStatus" EntityType="Self.EndorsementStatu" />
+          <EntitySet Name="EndorsementStatus1" EntityType="PES_TestModel.EndorsementStatus" />
           <AssociationSet Name="FK__CustomerL__custo__18EBB532" Association="Self.FK__CustomerL__custo__18EBB532">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="CustomerLoginCredentials" EntitySet="CustomerLoginCredentials" />
@@ -519,7 +519,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           </AssociationSet>
           <AssociationSet Name="FK__Endorseme__endor__2DE6D218" Association="Self.FK__Endorseme__endor__2DE6D218">
             <End Role="Endorsements" EntitySet="Endorsements" />
-            <End Role="EndorsementStatus" EntitySet="EndorsementStatus" />
+            <End Role="EndorsementStatus" EntitySet="EndorsementStatus1" />
           </AssociationSet>
           <AssociationSet Name="FK__Endorseme__polic__3B75D760" Association="Self.FK__Endorseme__polic__3B75D760">
             <End Role="Policy" EntitySet="Policies" />
@@ -531,7 +531,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           </AssociationSet>
           <AssociationSet Name="FK__Endorseme__polic__2EDAF651" Association="Self.FK__Endorseme__polic__2EDAF651">
             <End Role="Policy" EntitySet="Policies" />
-            <End Role="EndorsementStatus" EntitySet="EndorsementStatus" />
+            <End Role="EndorsementStatus" EntitySet="EndorsementStatus1" />
           </AssociationSet>
           <FunctionImport Name="createInsuranceProduct">
             <Parameter Name="productName" Mode="In" Type="String" />
@@ -576,7 +576,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <Parameter Name="flag" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getAllEndorsements" EntitySet="Endorsements" ReturnType="Collection(PES_TestModel.Endorsement)" />
-          <FunctionImport Name="getAllEndorsementsStatus" EntitySet="EndorsementStatus" ReturnType="Collection(PES_TestModel.EndorsementStatu)">
+          <FunctionImport Name="getAllEndorsementsStatus" EntitySet="EndorsementStatus1" ReturnType="Collection(PES_TestModel.EndorsementStatus)">
             <Parameter Name="cId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="createPolicy">
@@ -698,8 +698,8 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EndorsementStatus">
-            <EntityTypeMapping TypeName="PES_TestModel.EndorsementStatu">
+          <EntitySetMapping Name="EndorsementStatus1">
+            <EntityTypeMapping TypeName="PES_TestModel.EndorsementStatus">
               <MappingFragment StoreEntitySet="EndorsementStatus">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="endorsementId" ColumnName="endorsementId" />

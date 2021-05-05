@@ -86,7 +86,7 @@
     <Compile Include="Models\Endorsement.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EndorsementStatu.cs">
+    <Compile Include="Models\EndorsementStatus.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\InsuranceProduct.cs">

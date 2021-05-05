@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\sahug\Desktop\PES Sprint 2\PES-MVC\PESMVC.Data\Models\PES.edmx'. 
+﻿// T4 code generation is enabled for model 'D:\Git Repo's\Sprint2-PES\PES-MVC\PESMVC.Data\Models\PES.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

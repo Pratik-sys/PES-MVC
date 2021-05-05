@@ -12,7 +12,7 @@
         <EntityTypeShape EntityType="PES_TestModel.InsuranceProduct" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PES_TestModel.Policy" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PES_TestModel.Document" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="PES_TestModel.EndorsementStatu" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PES_TestModel.EndorsementStatus" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="PES_TestModel.FK__CustomerL__custo__18EBB532" ManuallyRouted="false" />
         <AssociationConnector Association="PES_TestModel.FK__Policy__customer__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="PES_TestModel.FK__Documents__endor__4222D4EF" ManuallyRouted="false" />
