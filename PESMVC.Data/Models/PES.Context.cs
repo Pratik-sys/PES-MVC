@@ -102,5 +102,101 @@ namespace PESMVC.Data.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updateInsuranceProduct", productIdParameter, productNameParameter, productLineParameter);
         }
+    
+        public virtual ObjectResult<string> createCustomer(string custName, string custAddress, string custTelephone, string custGender, Nullable<System.DateTime> custDOB, Nullable<bool> custSmoker, string custHobbies, ObjectParameter custId)
+        {
+            var custNameParameter = custName != null ?
+                new ObjectParameter("custName", custName) :
+                new ObjectParameter("custName", typeof(string));
+    
+            var custAddressParameter = custAddress != null ?
+                new ObjectParameter("custAddress", custAddress) :
+                new ObjectParameter("custAddress", typeof(string));
+    
+            var custTelephoneParameter = custTelephone != null ?
+                new ObjectParameter("custTelephone", custTelephone) :
+                new ObjectParameter("custTelephone", typeof(string));
+    
+            var custGenderParameter = custGender != null ?
+                new ObjectParameter("custGender", custGender) :
+                new ObjectParameter("custGender", typeof(string));
+    
+            var custDOBParameter = custDOB.HasValue ?
+                new ObjectParameter("custDOB", custDOB) :
+                new ObjectParameter("custDOB", typeof(System.DateTime));
+    
+            var custSmokerParameter = custSmoker.HasValue ?
+                new ObjectParameter("custSmoker", custSmoker) :
+                new ObjectParameter("custSmoker", typeof(bool));
+    
+            var custHobbiesParameter = custHobbies != null ?
+                new ObjectParameter("custHobbies", custHobbies) :
+                new ObjectParameter("custHobbies", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("createCustomer", custNameParameter, custAddressParameter, custTelephoneParameter, custGenderParameter, custDOBParameter, custSmokerParameter, custHobbiesParameter, custId);
+        }
+    
+        public virtual int deleteCustomer(string cId)
+        {
+            var cIdParameter = cId != null ?
+                new ObjectParameter("cId", cId) :
+                new ObjectParameter("cId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("deleteCustomer", cIdParameter);
+        }
+    
+        public virtual ObjectResult<Customer> getAllCustomers()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Customer>("getAllCustomers");
+        }
+    
+        public virtual ObjectResult<Customer> getAllCustomers(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Customer>("getAllCustomers", mergeOption);
+        }
+    
+        public virtual ObjectResult<Customer> getCustomerById(string cId)
+        {
+            var cIdParameter = cId != null ?
+                new ObjectParameter("cId", cId) :
+                new ObjectParameter("cId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Customer>("getCustomerById", cIdParameter);
+        }
+    
+        public virtual ObjectResult<Customer> getCustomerById(string cId, MergeOption mergeOption)
+        {
+            var cIdParameter = cId != null ?
+                new ObjectParameter("cId", cId) :
+                new ObjectParameter("cId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Customer>("getCustomerById", mergeOption, cIdParameter);
+        }
+    
+        public virtual ObjectResult<Customer> getCustomerByNameAndDob(string cName, Nullable<System.DateTime> cDOB)
+        {
+            var cNameParameter = cName != null ?
+                new ObjectParameter("cName", cName) :
+                new ObjectParameter("cName", typeof(string));
+    
+            var cDOBParameter = cDOB.HasValue ?
+                new ObjectParameter("cDOB", cDOB) :
+                new ObjectParameter("cDOB", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Customer>("getCustomerByNameAndDob", cNameParameter, cDOBParameter);
+        }
+    
+        public virtual ObjectResult<Customer> getCustomerByNameAndDob(string cName, Nullable<System.DateTime> cDOB, MergeOption mergeOption)
+        {
+            var cNameParameter = cName != null ?
+                new ObjectParameter("cName", cName) :
+                new ObjectParameter("cName", typeof(string));
+    
+            var cDOBParameter = cDOB.HasValue ?
+                new ObjectParameter("cDOB", cDOB) :
+                new ObjectParameter("cDOB", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Customer>("getCustomerByNameAndDob", mergeOption, cNameParameter, cDOBParameter);
+        }
     }
 }

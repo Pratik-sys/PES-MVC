@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PESMVC.Data.DTO.InsuranceProducts
 {
-    public class GetAllInsuranceProductsResponse
+    public class GetInsuranceProductResponse
     {
         public string productId { get; set; }
 

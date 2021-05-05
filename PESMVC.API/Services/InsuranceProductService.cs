@@ -53,16 +53,16 @@ namespace PESMVC.API.Services
             return flag;
         }
 
-        public List<GetAllInsuranceProductsResponse> GetAllInsuranceProduct()
+        public List<GetInsuranceProductResponse> GetAllInsuranceProduct()
         {
-            List<GetAllInsuranceProductsResponse> result = new List<GetAllInsuranceProductsResponse>();
-            GetAllInsuranceProductsResponse product = null;
+            List<GetInsuranceProductResponse> result = new List<GetInsuranceProductResponse>();
+            GetInsuranceProductResponse product = null;
             try
             {
                 var insuranceProduct = _dbContext.getAllInsuranceProduct();
                 foreach (var iP in insuranceProduct)
                 {
-                    product = new GetAllInsuranceProductsResponse();
+                    product = new GetInsuranceProductResponse();
                     product.productId = iP.productId;
                     product.productName = iP.productName;
                     product.productLine = iP.productLine;
@@ -76,9 +76,9 @@ namespace PESMVC.API.Services
             return result;
         }
 
-        public GetInsuranceProductByIdResponse GetInsuranceProductById(string id)
+        public GetInsuranceProductResponse GetInsuranceProductById(string id)
         {
-            GetInsuranceProductByIdResponse result = new GetInsuranceProductByIdResponse();
+            GetInsuranceProductResponse result = new GetInsuranceProductResponse();
             try
             {
                 var insuranceProduct = _dbContext.getInsuranceProductById(id);

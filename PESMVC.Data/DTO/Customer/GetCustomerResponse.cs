@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PESMVC.Data.DTO.Customer
 {
-    public class GetAllCustomersResponse
+    public class GetCustomerResponse
     {
         public int Id { get; set; }
         public string customerId { get; set; }
@@ -17,6 +17,5 @@ namespace PESMVC.Data.DTO.Customer
         public DateTime customerDOB { get; set; }
         public bool customerSmoker { get; set; }
         public string customerHobbies { get; set; }
-
     }
 }

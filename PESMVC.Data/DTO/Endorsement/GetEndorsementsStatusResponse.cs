@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PESMVC.Data.DTO.Endorsement
 {
-    public class GetAllEndorsementsStatusResponse
+    public class GetEndorsementsStatusResponse
     {
 
         public int Id { get; set; }

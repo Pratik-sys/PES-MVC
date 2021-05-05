@@ -549,6 +549,27 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <Parameter Name="productName" Mode="In" Type="String" />
             <Parameter Name="productLine" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="createCustomer" ReturnType="Collection(String)">
+            <Parameter Name="custName" Mode="In" Type="String" />
+            <Parameter Name="custAddress" Mode="In" Type="String" />
+            <Parameter Name="custTelephone" Mode="In" Type="String" />
+            <Parameter Name="custGender" Mode="In" Type="String" />
+            <Parameter Name="custDOB" Mode="In" Type="DateTime" />
+            <Parameter Name="custSmoker" Mode="In" Type="Boolean" />
+            <Parameter Name="custHobbies" Mode="In" Type="String" />
+            <Parameter Name="custId" Mode="InOut" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="deleteCustomer">
+            <Parameter Name="cId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getAllCustomers" EntitySet="Customers" ReturnType="Collection(PES_TestModel.Customer)" />
+          <FunctionImport Name="getCustomerById" EntitySet="Customers" ReturnType="Collection(PES_TestModel.Customer)">
+            <Parameter Name="cId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getCustomerByNameAndDob" EntitySet="Customers" ReturnType="Collection(PES_TestModel.Customer)">
+            <Parameter Name="cName" Mode="In" Type="String" />
+            <Parameter Name="cDOB" Mode="In" Type="DateTime" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -646,6 +667,11 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <FunctionImportMapping FunctionImportName="getAllInsuranceProduct" FunctionName="PES_TestModel.Store.uspDisplayInsuranceProducts" />
           <FunctionImportMapping FunctionImportName="getInsuranceProductById" FunctionName="PES_TestModel.Store.uspSearchInsuranceProduct" />
           <FunctionImportMapping FunctionImportName="updateInsuranceProduct" FunctionName="PES_TestModel.Store.uspUpdateInsuranceProduct" />
+          <FunctionImportMapping FunctionImportName="createCustomer" FunctionName="PES_TestModel.Store.uspCreateCustomer" />
+          <FunctionImportMapping FunctionImportName="deleteCustomer" FunctionName="PES_TestModel.Store.uspDeleteCustomer" />
+          <FunctionImportMapping FunctionImportName="getAllCustomers" FunctionName="PES_TestModel.Store.uspGetAllCustomers" />
+          <FunctionImportMapping FunctionImportName="getCustomerById" FunctionName="PES_TestModel.Store.uspSearchCustomerById" />
+          <FunctionImportMapping FunctionImportName="getCustomerByNameAndDob" FunctionName="PES_TestModel.Store.uspSearchCustomerByNameAndDob" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

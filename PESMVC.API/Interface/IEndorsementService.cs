@@ -12,8 +12,8 @@ namespace PESMVC.API.Interface
     {
         bool EndorsementApproval(EndorsementApprovalRequest endorsementApprovalRequest);
 
-        List<GetAllEndorsementsRespone> GetAllEndorsements();
+        List<GetEndorsementsRespone> GetAllEndorsements();
 
-        List<GetAllEndorsementsStatusResponse> GetAllEndorsementStatus(string id);
+        List<GetEndorsementsStatusResponse> GetAllEndorsementStatus(string id);
     }
 }

@@ -55,9 +55,9 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet] 
-        public GetInsuranceProductByIdResponse GetInsuranceProduct(string id)
+        public GetInsuranceProductResponse GetInsuranceProduct(string id)
         {
-            var result = new GetInsuranceProductByIdResponse();
+            var result = new GetInsuranceProductResponse();
             try
             {
                 result = _insuranceProductService.GetInsuranceProductById(id);
@@ -70,9 +70,9 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        public List<GetAllInsuranceProductsResponse> GetAllInsuranceProducts()
+        public List<GetInsuranceProductResponse> GetAllInsuranceProducts()
         {
-            var result = new List<GetAllInsuranceProductsResponse>();
+            var result = new List<GetInsuranceProductResponse>();
             try
             {
                 result = _insuranceProductService.GetAllInsuranceProduct();

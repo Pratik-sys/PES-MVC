@@ -10,15 +10,14 @@ namespace PESMVC.API.Interface
 {
     public interface ICustomerService
     {
-        bool CreateCustomer(CreateCustomerRequest createCustomerRequest);
+        string CreateCustomer(CreateCustomerRequest createCustomerRequest);
 
         bool DeleteCustomer(string id);
 
-        List<GetAllCustomersResponse> GetAllCustomer();
+        List<GetCustomerResponse> GetAllCustomer();
 
-        GetCustomerByIdResponse GetCustomerById(string id);
+        GetCustomerResponse GetCustomerById(string id);
 
-        GetCustomerByNameAndDobResponse SearchCustomerByNameAndDobRequest(string name, DateTime DOB);
-
+        GetCustomerResponse GetCustomerByNameAndDobRequest(string name, DateTime DOB);
     }
 }

@@ -56,15 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Customer\CreateCustomerRequest.cs" />
-    <Compile Include="DTO\Customer\GetAllCustomersResponse.cs" />
-    <Compile Include="DTO\Customer\GetCustomerByIdResponse.cs" />
-    <Compile Include="DTO\Customer\GetCustomerByNameAndDobResponse.cs" />
+    <Compile Include="DTO\Customer\GetCustomerResponse.cs" />
     <Compile Include="DTO\Endorsement\EndorsementApprovalRequest.cs" />
-    <Compile Include="DTO\Endorsement\GetAllEndorsementsRespone.cs" />
-    <Compile Include="DTO\Endorsement\GetAllEndorsementsStatusResponse.cs" />
+    <Compile Include="DTO\Endorsement\GetEndorsementsRespone.cs" />
+    <Compile Include="DTO\Endorsement\GetEndorsementsStatusResponse.cs" />
     <Compile Include="DTO\InsuranceProducts\CreateInsuranceProductRequest.cs" />
-    <Compile Include="DTO\InsuranceProducts\GetAllInsuranceProductsResponse.cs" />
-    <Compile Include="DTO\InsuranceProducts\GetInsuranceProductByIdResponse.cs" />
+    <Compile Include="DTO\InsuranceProducts\GetInsuranceProductResponse.cs" />
     <Compile Include="DTO\InsuranceProducts\UpdateInsuranceProductRequest.cs" />
     <Compile Include="DTO\Policy\ApplyForPolicyRequest.cs" />
     <Compile Include="DTO\Policy\GetAllPolicyResponse.cs" />
