@@ -49,6 +49,7 @@ namespace PESMVC.API.Controllers
             return result;
         }
         
+        [HttpPost]
         public IHttpActionResult EndorsementApprovalApi(EndorsementApprovalRequest endorsementApprovalRequest)
         {
             string message = "Failed";

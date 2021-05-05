@@ -105,7 +105,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPut]
-        public IHttpActionResult UpdatePolicyApi(UpdatePolicyRequest updatePolicyRequest)
+        public IHttpActionResult UpdatePolicyApi([FromBody]UpdatePolicyRequest updatePolicyRequest)
         {
             string message = "Failed";
             if (_policyService.UpdatePolicy(updatePolicyRequest))
