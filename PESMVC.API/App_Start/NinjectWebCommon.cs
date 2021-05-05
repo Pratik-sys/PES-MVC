@@ -64,6 +64,9 @@ namespace PESMVC.API.App_Start
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Bind<IInsuranceProductService>().To<InsuranceProductService>();
+            kernel.Bind<IEndorsementService>().To<EndorsementService>();
+            kernel.Bind<IPolicyServices>().To<PolicyService>();
+            kernel.Bind<ICustomerService>().To<CustomerService>();
         }
     }
 }

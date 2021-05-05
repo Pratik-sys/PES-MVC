@@ -49,7 +49,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        List<GetPolicyByCustomerNameAndDobResponse> GetPolicyByCustNameAndDobApi(string name, DateTime DOB)
+        public List<GetPolicyByCustomerNameAndDobResponse> GetPolicyByCustNameAndDobApi(string name, DateTime DOB)
         {
             var result = new List<GetPolicyByCustomerNameAndDobResponse>();
             try
@@ -64,7 +64,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        GetPolicyByPolicyNumberResponse GetPolicyByPNApi(string policyNum)
+        public GetPolicyByPolicyNumberResponse GetPolicyByPNApi(string policyNum)
         {
             var result = new GetPolicyByPolicyNumberResponse();
             try
@@ -79,7 +79,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        GetPolicyByCustomerIdAndPolicyNumberResponse GetPolicyByCustIdAndpNApi(string custId, string policyNum)
+        public GetPolicyByCustomerIdAndPolicyNumberResponse GetPolicyByCustIdAndpNApi(string custId, string policyNum)
         {
             var result = new GetPolicyByCustomerIdAndPolicyNumberResponse();
             try
