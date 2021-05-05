@@ -50,7 +50,7 @@ namespace PESMVC.API.Controllers
         }
         
         [HttpPost]
-        public IHttpActionResult EndorsementApprovalApi(EndorsementApprovalRequest endorsementApprovalRequest)
+        public IHttpActionResult EndorsementApprovalApi([FromBody]EndorsementApprovalRequest endorsementApprovalRequest)
         {
             string message = "Failed";
             if (_endorsementService.EndorsementApproval(endorsementApprovalRequest))
