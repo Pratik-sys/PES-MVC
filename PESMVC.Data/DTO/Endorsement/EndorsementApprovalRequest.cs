@@ -14,6 +14,6 @@ namespace PESMVC.Data.DTO.Endorsement
         [Required]
         public string policyNumber { get; set; }
         [Required]
-        public bool Flag { get; set; }
+        public string Flag { get; set; }
     }
 }

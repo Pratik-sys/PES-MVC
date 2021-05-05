@@ -198,5 +198,236 @@ namespace PESMVC.Data.Models
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Customer>("getCustomerByNameAndDob", mergeOption, cNameParameter, cDOBParameter);
         }
+    
+        public virtual int endorsementApproval(string eId, string pN, string flag)
+        {
+            var eIdParameter = eId != null ?
+                new ObjectParameter("eId", eId) :
+                new ObjectParameter("eId", typeof(string));
+    
+            var pNParameter = pN != null ?
+                new ObjectParameter("pN", pN) :
+                new ObjectParameter("pN", typeof(string));
+    
+            var flagParameter = flag != null ?
+                new ObjectParameter("flag", flag) :
+                new ObjectParameter("flag", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("endorsementApproval", eIdParameter, pNParameter, flagParameter);
+        }
+    
+        public virtual ObjectResult<Endorsement> getAllEndorsements()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Endorsement>("getAllEndorsements");
+        }
+    
+        public virtual ObjectResult<Endorsement> getAllEndorsements(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Endorsement>("getAllEndorsements", mergeOption);
+        }
+    
+        public virtual ObjectResult<EndorsementStatu> getAllEndorsementsStatus(string cId)
+        {
+            var cIdParameter = cId != null ?
+                new ObjectParameter("cId", cId) :
+                new ObjectParameter("cId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<EndorsementStatu>("getAllEndorsementsStatus", cIdParameter);
+        }
+    
+        public virtual ObjectResult<EndorsementStatu> getAllEndorsementsStatus(string cId, MergeOption mergeOption)
+        {
+            var cIdParameter = cId != null ?
+                new ObjectParameter("cId", cId) :
+                new ObjectParameter("cId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<EndorsementStatu>("getAllEndorsementsStatus", mergeOption, cIdParameter);
+        }
+    
+        public virtual int createPolicy(string custId, string productId, string policyNom, string policyNomRelation, string policyPremiumPaymentFreqn, string filePath)
+        {
+            var custIdParameter = custId != null ?
+                new ObjectParameter("custId", custId) :
+                new ObjectParameter("custId", typeof(string));
+    
+            var productIdParameter = productId != null ?
+                new ObjectParameter("productId", productId) :
+                new ObjectParameter("productId", typeof(string));
+    
+            var policyNomParameter = policyNom != null ?
+                new ObjectParameter("policyNom", policyNom) :
+                new ObjectParameter("policyNom", typeof(string));
+    
+            var policyNomRelationParameter = policyNomRelation != null ?
+                new ObjectParameter("policyNomRelation", policyNomRelation) :
+                new ObjectParameter("policyNomRelation", typeof(string));
+    
+            var policyPremiumPaymentFreqnParameter = policyPremiumPaymentFreqn != null ?
+                new ObjectParameter("policyPremiumPaymentFreqn", policyPremiumPaymentFreqn) :
+                new ObjectParameter("policyPremiumPaymentFreqn", typeof(string));
+    
+            var filePathParameter = filePath != null ?
+                new ObjectParameter("filePath", filePath) :
+                new ObjectParameter("filePath", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("createPolicy", custIdParameter, productIdParameter, policyNomParameter, policyNomRelationParameter, policyPremiumPaymentFreqnParameter, filePathParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getAllPolicy()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getAllPolicy");
+        }
+    
+        public virtual ObjectResult<Policy> getAllPolicy(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getAllPolicy", mergeOption);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicyByCustomerId(string customerId)
+        {
+            var customerIdParameter = customerId != null ?
+                new ObjectParameter("customerId", customerId) :
+                new ObjectParameter("customerId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicyByCustomerId", customerIdParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicyByCustomerId(string customerId, MergeOption mergeOption)
+        {
+            var customerIdParameter = customerId != null ?
+                new ObjectParameter("customerId", customerId) :
+                new ObjectParameter("customerId", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicyByCustomerId", mergeOption, customerIdParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicyByCustomerNameAndDob(string customerName, Nullable<System.DateTime> customerDOB)
+        {
+            var customerNameParameter = customerName != null ?
+                new ObjectParameter("customerName", customerName) :
+                new ObjectParameter("customerName", typeof(string));
+    
+            var customerDOBParameter = customerDOB.HasValue ?
+                new ObjectParameter("customerDOB", customerDOB) :
+                new ObjectParameter("customerDOB", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicyByCustomerNameAndDob", customerNameParameter, customerDOBParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicyByCustomerNameAndDob(string customerName, Nullable<System.DateTime> customerDOB, MergeOption mergeOption)
+        {
+            var customerNameParameter = customerName != null ?
+                new ObjectParameter("customerName", customerName) :
+                new ObjectParameter("customerName", typeof(string));
+    
+            var customerDOBParameter = customerDOB.HasValue ?
+                new ObjectParameter("customerDOB", customerDOB) :
+                new ObjectParameter("customerDOB", typeof(System.DateTime));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicyByCustomerNameAndDob", mergeOption, customerNameParameter, customerDOBParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicyByCustomerIdAndPolicyNumber(string cId, string pN)
+        {
+            var cIdParameter = cId != null ?
+                new ObjectParameter("cId", cId) :
+                new ObjectParameter("cId", typeof(string));
+    
+            var pNParameter = pN != null ?
+                new ObjectParameter("pN", pN) :
+                new ObjectParameter("pN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicyByCustomerIdAndPolicyNumber", cIdParameter, pNParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicyByCustomerIdAndPolicyNumber(string cId, string pN, MergeOption mergeOption)
+        {
+            var cIdParameter = cId != null ?
+                new ObjectParameter("cId", cId) :
+                new ObjectParameter("cId", typeof(string));
+    
+            var pNParameter = pN != null ?
+                new ObjectParameter("pN", pN) :
+                new ObjectParameter("pN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicyByCustomerIdAndPolicyNumber", mergeOption, cIdParameter, pNParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicy(string pN)
+        {
+            var pNParameter = pN != null ?
+                new ObjectParameter("pN", pN) :
+                new ObjectParameter("pN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicy", pNParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicy(string pN, MergeOption mergeOption)
+        {
+            var pNParameter = pN != null ?
+                new ObjectParameter("pN", pN) :
+                new ObjectParameter("pN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicy", mergeOption, pNParameter);
+        }
+    
+        public virtual int updatePolicy(string custId, string policyNum, string policyNom, string policyNomRelation, string policyPremiumPaymentFreqn, string filePath, string custAddress, string custTelephone, Nullable<bool> custSmoker)
+        {
+            var custIdParameter = custId != null ?
+                new ObjectParameter("custId", custId) :
+                new ObjectParameter("custId", typeof(string));
+    
+            var policyNumParameter = policyNum != null ?
+                new ObjectParameter("policyNum", policyNum) :
+                new ObjectParameter("policyNum", typeof(string));
+    
+            var policyNomParameter = policyNom != null ?
+                new ObjectParameter("policyNom", policyNom) :
+                new ObjectParameter("policyNom", typeof(string));
+    
+            var policyNomRelationParameter = policyNomRelation != null ?
+                new ObjectParameter("policyNomRelation", policyNomRelation) :
+                new ObjectParameter("policyNomRelation", typeof(string));
+    
+            var policyPremiumPaymentFreqnParameter = policyPremiumPaymentFreqn != null ?
+                new ObjectParameter("policyPremiumPaymentFreqn", policyPremiumPaymentFreqn) :
+                new ObjectParameter("policyPremiumPaymentFreqn", typeof(string));
+    
+            var filePathParameter = filePath != null ?
+                new ObjectParameter("filePath", filePath) :
+                new ObjectParameter("filePath", typeof(string));
+    
+            var custAddressParameter = custAddress != null ?
+                new ObjectParameter("custAddress", custAddress) :
+                new ObjectParameter("custAddress", typeof(string));
+    
+            var custTelephoneParameter = custTelephone != null ?
+                new ObjectParameter("custTelephone", custTelephone) :
+                new ObjectParameter("custTelephone", typeof(string));
+    
+            var custSmokerParameter = custSmoker.HasValue ?
+                new ObjectParameter("custSmoker", custSmoker) :
+                new ObjectParameter("custSmoker", typeof(bool));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("updatePolicy", custIdParameter, policyNumParameter, policyNomParameter, policyNomRelationParameter, policyPremiumPaymentFreqnParameter, filePathParameter, custAddressParameter, custTelephoneParameter, custSmokerParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicyByPolicyNumber(string policyNumber)
+        {
+            var policyNumberParameter = policyNumber != null ?
+                new ObjectParameter("policyNumber", policyNumber) :
+                new ObjectParameter("policyNumber", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicyByPolicyNumber", policyNumberParameter);
+        }
+    
+        public virtual ObjectResult<Policy> getPolicyByPolicyNumber(string policyNumber, MergeOption mergeOption)
+        {
+            var policyNumberParameter = policyNumber != null ?
+                new ObjectParameter("policyNumber", policyNumber) :
+                new ObjectParameter("policyNumber", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Policy>("getPolicyByPolicyNumber", mergeOption, policyNumberParameter);
+        }
     }
 }

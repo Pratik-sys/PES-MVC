@@ -570,6 +570,52 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <Parameter Name="cName" Mode="In" Type="String" />
             <Parameter Name="cDOB" Mode="In" Type="DateTime" />
           </FunctionImport>
+          <FunctionImport Name="endorsementApproval">
+            <Parameter Name="eId" Mode="In" Type="String" />
+            <Parameter Name="pN" Mode="In" Type="String" />
+            <Parameter Name="flag" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getAllEndorsements" EntitySet="Endorsements" ReturnType="Collection(PES_TestModel.Endorsement)" />
+          <FunctionImport Name="getAllEndorsementsStatus" EntitySet="EndorsementStatus" ReturnType="Collection(PES_TestModel.EndorsementStatu)">
+            <Parameter Name="cId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="createPolicy">
+            <Parameter Name="custId" Mode="In" Type="String" />
+            <Parameter Name="productId" Mode="In" Type="String" />
+            <Parameter Name="policyNom" Mode="In" Type="String" />
+            <Parameter Name="policyNomRelation" Mode="In" Type="String" />
+            <Parameter Name="policyPremiumPaymentFreqn" Mode="In" Type="String" />
+            <Parameter Name="filePath" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getAllPolicy" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)" />
+          <FunctionImport Name="getPolicyByCustomerId" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
+            <Parameter Name="customerId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getPolicyByCustomerNameAndDob" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
+            <Parameter Name="customerName" Mode="In" Type="String" />
+            <Parameter Name="customerDOB" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="getPolicyByCustomerIdAndPolicyNumber" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
+            <Parameter Name="cId" Mode="In" Type="String" />
+            <Parameter Name="pN" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="getPolicy" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
+            <Parameter Name="pN" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="updatePolicy">
+            <Parameter Name="custId" Mode="In" Type="String" />
+            <Parameter Name="policyNum" Mode="In" Type="String" />
+            <Parameter Name="policyNom" Mode="In" Type="String" />
+            <Parameter Name="policyNomRelation" Mode="In" Type="String" />
+            <Parameter Name="policyPremiumPaymentFreqn" Mode="In" Type="String" />
+            <Parameter Name="filePath" Mode="In" Type="String" />
+            <Parameter Name="custAddress" Mode="In" Type="String" />
+            <Parameter Name="custTelephone" Mode="In" Type="String" />
+            <Parameter Name="custSmoker" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="getPolicyByPolicyNumber" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
+            <Parameter Name="policyNumber" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -672,6 +718,17 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <FunctionImportMapping FunctionImportName="getAllCustomers" FunctionName="PES_TestModel.Store.uspGetAllCustomers" />
           <FunctionImportMapping FunctionImportName="getCustomerById" FunctionName="PES_TestModel.Store.uspSearchCustomerById" />
           <FunctionImportMapping FunctionImportName="getCustomerByNameAndDob" FunctionName="PES_TestModel.Store.uspSearchCustomerByNameAndDob" />
+          <FunctionImportMapping FunctionImportName="endorsementApproval" FunctionName="PES_TestModel.Store.uspEndorsementApproval" />
+          <FunctionImportMapping FunctionImportName="getAllEndorsements" FunctionName="PES_TestModel.Store.uspGetAllEndorsements" />
+          <FunctionImportMapping FunctionImportName="getAllEndorsementsStatus" FunctionName="PES_TestModel.Store.uspGetAllEndorsementsStatus" />
+          <FunctionImportMapping FunctionImportName="createPolicy" FunctionName="PES_TestModel.Store.uspApplyForPolicy" />
+          <FunctionImportMapping FunctionImportName="getAllPolicy" FunctionName="PES_TestModel.Store.uspGetAllPolicy" />
+          <FunctionImportMapping FunctionImportName="getPolicyByCustomerId" FunctionName="PES_TestModel.Store.uspSearchByCustomerId" />
+          <FunctionImportMapping FunctionImportName="getPolicyByCustomerNameAndDob" FunctionName="PES_TestModel.Store.uspSearchByCustomerNameAndDob" />
+          <FunctionImportMapping FunctionImportName="getPolicyByCustomerIdAndPolicyNumber" FunctionName="PES_TestModel.Store.uspSearchPolicyByCustomerIdAndPolicyNumber" />
+          <FunctionImportMapping FunctionImportName="getPolicy" FunctionName="PES_TestModel.Store.uspViewPolicy" />
+          <FunctionImportMapping FunctionImportName="updatePolicy" FunctionName="PES_TestModel.Store.uspUpdatePolicy" />
+          <FunctionImportMapping FunctionImportName="getPolicyByPolicyNumber" FunctionName="PES_TestModel.Store.uspSearchByPolicyNumber" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

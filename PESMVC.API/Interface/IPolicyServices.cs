@@ -12,7 +12,7 @@ namespace PESMVC.API.Interface
     {
         bool ApplyForPolicy(ApplyForPolicyRequest applyForPolicyRequest);
 
-        bool GetAllPolicy(GetAllPolicyResponse getAllPolicyResponse);
+        List<GetAllPolicyResponse> GetAllPolicy();
 
         List<GetPolicyByCustomerIdResponse> GetPolicyByCustomerId(string id);
 
