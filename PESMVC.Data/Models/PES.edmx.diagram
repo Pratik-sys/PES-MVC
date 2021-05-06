@@ -4,22 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="ee84c1191142464d94e74ad3f5b5faef" Name="Diagram1">
-        <EntityTypeShape EntityType="PES_TestModel.AdminLoginCredential" Width="1.5" PointX="0.75" PointY="0.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="PES_TestModel.CustomerLoginCredential" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+      <Diagram DiagramId="ee84c1191142464d94e74ad3f5b5faef" Name="Diagram1" ZoomLevel="74">
         <EntityTypeShape EntityType="PES_TestModel.Customer" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
         <EntityTypeShape EntityType="PES_TestModel.Endorsement" Width="1.5" PointX="8.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="PES_TestModel.InsuranceProduct" Width="1.5" PointX="3.75" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="PES_TestModel.Policy" Width="1.5" PointX="6" PointY="3.125" IsExpanded="true" />
         <EntityTypeShape EntityType="PES_TestModel.Document" Width="1.5" PointX="10.5" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="PES_TestModel.EndorsementStatus" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="PES_TestModel.FK__CustomerL__custo__18EBB532" ManuallyRouted="false" />
         <AssociationConnector Association="PES_TestModel.FK__Policy__customer__2F10007B" ManuallyRouted="false" />
         <AssociationConnector Association="PES_TestModel.FK__Documents__endor__4222D4EF" ManuallyRouted="false" />
         <AssociationConnector Association="PES_TestModel.FK__Endorseme__endor__2DE6D218" ManuallyRouted="false" />
         <AssociationConnector Association="PES_TestModel.FK__Endorseme__polic__3B75D760" ManuallyRouted="false" />
         <AssociationConnector Association="PES_TestModel.FK__Policy__productI__300424B4" ManuallyRouted="false" />
         <AssociationConnector Association="PES_TestModel.FK__Endorseme__polic__2EDAF651" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PES_TestModel.LoginCredential" Width="1.5" PointX="1.125" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

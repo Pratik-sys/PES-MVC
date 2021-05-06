@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 
-namespace PESMVC.Auth.Token
+namespace PESMVC.Auth
 {
     public static class WebApiConfig
     {

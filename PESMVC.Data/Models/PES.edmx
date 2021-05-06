@@ -4,23 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PES_TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="AdminLoginCredentials">
-          <Key>
-            <PropertyRef Name="adminLoginId" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="adminLoginId" Type="varchar" MaxLength="7" Nullable="false" />
-          <Property Name="adminPassword" Type="varchar" MaxLength="7" />
-        </EntityType>
-        <EntityType Name="CustomerLoginCredentials">
-          <Key>
-            <PropertyRef Name="loginId" />
-          </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="loginId" Type="varchar" MaxLength="7" StoreGeneratedPattern="Computed" Nullable="false" />
-          <Property Name="customerId" Type="varchar" MaxLength="7" />
-        </EntityType>
+    <Schema Namespace="PES_TestModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="customerId" />
@@ -74,6 +58,15 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <Property Name="productName" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="productLine" Type="varchar" MaxLength="8" Nullable="false" />
         </EntityType>
+        <EntityType Name="LoginCredentials">
+          <Key>
+            <PropertyRef Name="loginId" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="loginId" Type="varchar" MaxLength="7" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="pswd" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="roleType" Type="varchar" MaxLength="5" />
+        </EntityType>
         <EntityType Name="Policy">
           <Key>
             <PropertyRef Name="policyNumber" />
@@ -87,18 +80,6 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <Property Name="policyPremiumPaymentFrequency" Type="varchar" MaxLength="30" Nullable="false" />
           <Property Name="filePath" Type="varchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <Association Name="FK__CustomerL__custo__18EBB532">
-          <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
-          <End Role="CustomerLoginCredentials" Type="Self.CustomerLoginCredentials" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="customerId" />
-            </Principal>
-            <Dependent Role="CustomerLoginCredentials">
-              <PropertyRef Name="customerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Documents__endor__4222D4EF">
           <End Role="Endorsements" Type="Self.Endorsements" Multiplicity="0..1" />
           <End Role="Documents" Type="Self.Documents" Multiplicity="*" />
@@ -266,11 +247,10 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <Parameter Name="pN" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="PES_TestModelStoreContainer">
-          <EntitySet Name="AdminLoginCredentials" EntityType="Self.AdminLoginCredentials" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CustomerLoginCredentials" EntityType="Self.CustomerLoginCredentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Endorsements" EntityType="Self.Endorsements" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="InsuranceProducts" EntityType="Self.InsuranceProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginCredentials" EntityType="Self.LoginCredentials" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Policy" EntityType="Self.Policy" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Documents" EntityType="Self.Documents" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -286,10 +266,6 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
     [EndorsementStatus].[endorsementStatus] AS [endorsementStatus]
     FROM [dbo].[EndorsementStatus] AS [EndorsementStatus]</DefiningQuery>
           </EntitySet>
-          <AssociationSet Name="FK__CustomerL__custo__18EBB532" Association="Self.FK__CustomerL__custo__18EBB532">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="CustomerLoginCredentials" EntitySet="CustomerLoginCredentials" />
-          </AssociationSet>
           <AssociationSet Name="FK__Documents__endor__4222D4EF" Association="Self.FK__Documents__endor__4222D4EF">
             <End Role="Endorsements" EntitySet="Endorsements" />
             <End Role="Documents" EntitySet="Documents" />
@@ -315,28 +291,10 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <End Role="Policy" EntitySet="Policy" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PES_TestModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="AdminLoginCredential">
-          <Key>
-            <PropertyRef Name="adminLoginId" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="adminLoginId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="adminPassword" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="CustomerLoginCredential">
-          <Key>
-            <PropertyRef Name="loginId" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="loginId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
-          <Property Name="customerId" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Customer" Relationship="Self.FK__CustomerL__custo__18EBB532" FromRole="CustomerLoginCredentials" ToRole="Customers" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="customerId" />
@@ -350,7 +308,6 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <Property Name="customerDOB" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="customerSmoker" Type="Boolean" Nullable="false" />
           <Property Name="customerHobbies" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="CustomerLoginCredentials" Relationship="Self.FK__CustomerL__custo__18EBB532" FromRole="Customers" ToRole="CustomerLoginCredentials" />
           <NavigationProperty Name="Policies" Relationship="Self.FK__Policy__customer__2F10007B" FromRole="Customers" ToRole="Policy" />
         </EntityType>
         <EntityType Name="Endorsement">
@@ -412,18 +369,6 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <NavigationProperty Name="Endorsement" Relationship="Self.FK__Endorseme__endor__2DE6D218" FromRole="EndorsementStatus" ToRole="Endorsements" />
           <NavigationProperty Name="Policy" Relationship="Self.FK__Endorseme__polic__2EDAF651" FromRole="EndorsementStatus" ToRole="Policy" />
         </EntityType>
-        <Association Name="FK__CustomerL__custo__18EBB532">
-          <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
-          <End Role="CustomerLoginCredentials" Type="Self.CustomerLoginCredential" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customers">
-              <PropertyRef Name="customerId" />
-            </Principal>
-            <Dependent Role="CustomerLoginCredentials">
-              <PropertyRef Name="customerId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK__Policy__customer__2F10007B">
           <End Role="Customers" Type="Self.Customer" Multiplicity="0..1" />
           <End Role="Policy" Type="Self.Policy" Multiplicity="*" />
@@ -497,18 +442,12 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="PES_TestEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="AdminLoginCredentials" EntityType="Self.AdminLoginCredential" />
-          <EntitySet Name="CustomerLoginCredentials" EntityType="Self.CustomerLoginCredential" />
           <EntitySet Name="Customers" EntityType="Self.Customer" />
           <EntitySet Name="Endorsements" EntityType="Self.Endorsement" />
           <EntitySet Name="InsuranceProducts" EntityType="Self.InsuranceProduct" />
           <EntitySet Name="Policies" EntityType="Self.Policy" />
           <EntitySet Name="Documents" EntityType="Self.Document" />
           <EntitySet Name="EndorsementStatus1" EntityType="PES_TestModel.EndorsementStatus" />
-          <AssociationSet Name="FK__CustomerL__custo__18EBB532" Association="Self.FK__CustomerL__custo__18EBB532">
-            <End Role="Customers" EntitySet="Customers" />
-            <End Role="CustomerLoginCredentials" EntitySet="CustomerLoginCredentials" />
-          </AssociationSet>
           <AssociationSet Name="FK__Policy__customer__2F10007B" Association="Self.FK__Policy__customer__2F10007B">
             <End Role="Customers" EntitySet="Customers" />
             <End Role="Policy" EntitySet="Policies" />
@@ -538,11 +477,11 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <Parameter Name="productLine" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="deleteInsuranceProduct">
-            <Parameter Name="insuranceId" Mode="In" Type="String" />
+          <Parameter Name="insuranceId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getAllInsuranceProduct" EntitySet="InsuranceProducts" ReturnType="Collection(PES_TestModel.InsuranceProduct)" />
           <FunctionImport Name="getInsuranceProductById" EntitySet="InsuranceProducts" ReturnType="Collection(PES_TestModel.InsuranceProduct)">
-            <Parameter Name="insuranceId" Mode="In" Type="String" />
+          <Parameter Name="insuranceId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="updateInsuranceProduct">
             <Parameter Name="productId" Mode="In" Type="String" />
@@ -560,11 +499,11 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <Parameter Name="custId" Mode="InOut" Type="String" />
           </FunctionImport>
           <FunctionImport Name="deleteCustomer">
-            <Parameter Name="cId" Mode="In" Type="String" />
+          <Parameter Name="cId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getAllCustomers" EntitySet="Customers" ReturnType="Collection(PES_TestModel.Customer)" />
           <FunctionImport Name="getCustomerById" EntitySet="Customers" ReturnType="Collection(PES_TestModel.Customer)">
-            <Parameter Name="cId" Mode="In" Type="String" />
+          <Parameter Name="cId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getCustomerByNameAndDob" EntitySet="Customers" ReturnType="Collection(PES_TestModel.Customer)">
             <Parameter Name="cName" Mode="In" Type="String" />
@@ -577,7 +516,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           </FunctionImport>
           <FunctionImport Name="getAllEndorsements" EntitySet="Endorsements" ReturnType="Collection(PES_TestModel.Endorsement)" />
           <FunctionImport Name="getAllEndorsementsStatus" EntitySet="EndorsementStatus1" ReturnType="Collection(PES_TestModel.EndorsementStatus)">
-            <Parameter Name="cId" Mode="In" Type="String" />
+          <Parameter Name="cId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="createPolicy">
             <Parameter Name="custId" Mode="In" Type="String" />
@@ -589,7 +528,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           </FunctionImport>
           <FunctionImport Name="getAllPolicy" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)" />
           <FunctionImport Name="getPolicyByCustomerId" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
-            <Parameter Name="customerId" Mode="In" Type="String" />
+          <Parameter Name="customerId" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getPolicyByCustomerNameAndDob" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
             <Parameter Name="customerName" Mode="In" Type="String" />
@@ -600,7 +539,7 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <Parameter Name="pN" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getPolicy" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
-            <Parameter Name="pN" Mode="In" Type="String" />
+          <Parameter Name="pN" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="updatePolicy">
             <Parameter Name="custId" Mode="In" Type="String" />
@@ -614,33 +553,35 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
             <Parameter Name="custSmoker" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="getPolicyByPolicyNumber" EntitySet="Policies" ReturnType="Collection(PES_TestModel.Policy)">
-            <Parameter Name="policyNumber" Mode="In" Type="String" />
+          <Parameter Name="policyNumber" Mode="In" Type="String" />
           </FunctionImport>
+          <EntitySet Name="LoginCredentials" EntityType="PES_TestModel.LoginCredential" />
+          <FunctionImport Name="validateLoginCredentials" EntitySet="LoginCredentials" ReturnType="Collection(PES_TestModel.LoginCredential)">
+            <Parameter Name="userId" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="loginType" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="signUp">
+            <Parameter Name="cId" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="createAdmin" />
+          <FunctionImport Name="getAdmin" ReturnType="Collection(Int32)" />
         </EntityContainer>
+        <EntityType Name="LoginCredential">
+          <Key>
+            <PropertyRef Name="loginId" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="loginId" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" annotation:StoreGeneratedPattern="Computed" />
+          <Property Name="pswd" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="roleType" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="PES_TestModelStoreContainer" CdmEntityContainer="PES_TestEntities">
-          <EntitySetMapping Name="AdminLoginCredentials">
-            <EntityTypeMapping TypeName="PES_TestModel.AdminLoginCredential">
-              <MappingFragment StoreEntitySet="AdminLoginCredentials">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="adminLoginId" ColumnName="adminLoginId" />
-                <ScalarProperty Name="adminPassword" ColumnName="adminPassword" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="CustomerLoginCredentials">
-            <EntityTypeMapping TypeName="PES_TestModel.CustomerLoginCredential">
-              <MappingFragment StoreEntitySet="CustomerLoginCredentials">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="loginId" ColumnName="loginId" />
-                <ScalarProperty Name="customerId" ColumnName="customerId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="PES_TestModel.Customer">
               <MappingFragment StoreEntitySet="Customers">
@@ -729,6 +670,20 @@ warning 6002: The table/view 'PES_Test.dbo.EndorsementStatus' does not have a pr
           <FunctionImportMapping FunctionImportName="getPolicy" FunctionName="PES_TestModel.Store.uspViewPolicy" />
           <FunctionImportMapping FunctionImportName="updatePolicy" FunctionName="PES_TestModel.Store.uspUpdatePolicy" />
           <FunctionImportMapping FunctionImportName="getPolicyByPolicyNumber" FunctionName="PES_TestModel.Store.uspSearchByPolicyNumber" />
+          <EntitySetMapping Name="LoginCredentials">
+            <EntityTypeMapping TypeName="PES_TestModel.LoginCredential">
+              <MappingFragment StoreEntitySet="LoginCredentials">
+                <ScalarProperty Name="roleType" ColumnName="roleType" />
+                <ScalarProperty Name="pswd" ColumnName="pswd" />
+                <ScalarProperty Name="loginId" ColumnName="loginId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="validateLoginCredentials" FunctionName="PES_TestModel.Store.uspCheckLoginCredentials" />
+          <FunctionImportMapping FunctionImportName="signUp" FunctionName="PES_TestModel.Store.uspSignUp" />
+          <FunctionImportMapping FunctionImportName="createAdmin" FunctionName="PES_TestModel.Store.uspCreateAdmin" />
+          <FunctionImportMapping FunctionImportName="getAdmin" FunctionName="PES_TestModel.Store.uspFindAdmin" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

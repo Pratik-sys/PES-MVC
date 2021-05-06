@@ -19,6 +19,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public IHttpActionResult CreateCustomerApi([FromBody] CreateCustomerRequest createCustomerRequest)
         {
             string message = "failed";
@@ -32,6 +33,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpDelete]
+        [AllowAnonymous]
         public IHttpActionResult DeleteCustomerApi(string id)
         {
             string message = "Failed";
@@ -46,6 +48,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public List<GetCustomerResponse> GetAllCustomersApi()
         {
             var result = new List<GetCustomerResponse>();
@@ -61,6 +64,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public GetCustomerResponse GetCustomerByIdApi(string id)
         {
             var result = new GetCustomerResponse();
@@ -76,6 +80,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public GetCustomerResponse GetCustomerByNameAndDobApi(string name, DateTime DOB)
         {
             var result = new GetCustomerResponse();

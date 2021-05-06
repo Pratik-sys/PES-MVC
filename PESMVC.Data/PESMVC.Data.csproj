@@ -55,6 +55,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Account\GetAccountResponse.cs" />
+    <Compile Include="DTO\Account\ValidateAccountRequest.cs" />
     <Compile Include="DTO\Customer\CreateCustomerRequest.cs" />
     <Compile Include="DTO\Customer\GetCustomerResponse.cs" />
     <Compile Include="DTO\Endorsement\EndorsementApprovalRequest.cs" />
@@ -67,13 +69,7 @@
     <Compile Include="DTO\Policy\GetPolicyResponse.cs" />
     <Compile Include="DTO\Policy\UpdatePolicyRequest.cs" />
     <Compile Include="DTO\Policy\ViewPolicyResponse.cs" />
-    <Compile Include="Models\AdminLoginCredential.cs">
-      <DependentUpon>PES.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\Customer.cs">
-      <DependentUpon>PES.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\CustomerLoginCredential.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Document.cs">
@@ -86,6 +82,9 @@
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\InsuranceProduct.cs">
+      <DependentUpon>PES.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LoginCredential.cs">
       <DependentUpon>PES.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PES.Context.cs">
