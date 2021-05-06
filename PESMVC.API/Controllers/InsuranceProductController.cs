@@ -19,6 +19,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult CreateInsuranceProduct([FromBody] CreateInsuranceProductRequest insuranceProductRequest)
         {
             string message = "Failed";
@@ -30,6 +31,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult UpdateInsuranceProduct([FromBody] UpdateInsuranceProductRequest insuranceProductRequest)
         {
             string message = "Failed";
@@ -41,6 +43,7 @@ namespace PESMVC.API.Controllers
         }
     
         [HttpDelete]
+        [Authorize(Roles = "Admin")]
         public IHttpActionResult DeleteInsuranceProduct(string id)
         {
             string message = "Failed";
@@ -54,7 +57,8 @@ namespace PESMVC.API.Controllers
             return Ok(message);
         }
 
-        [HttpGet] 
+        [HttpGet]
+        [Authorize(Roles = "Admin")]
         public GetInsuranceProductResponse GetInsuranceProduct(string id)
         {
             var result = new GetInsuranceProductResponse();
@@ -70,6 +74,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin,User")]
         public List<GetInsuranceProductResponse> GetAllInsuranceProducts()
         {
             var result = new List<GetInsuranceProductResponse>();

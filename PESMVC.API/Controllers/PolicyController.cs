@@ -19,6 +19,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public List<GetPolicyResponse> GetAllPolicyApi()
         {
             var result = new List<GetPolicyResponse>();
@@ -34,6 +35,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin, User")]
         public List<GetPolicyResponse> GetPolicyByCustIdApi(string id)
         {
             var result = new List<GetPolicyResponse>();
@@ -49,6 +51,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User,Admin")]
         public List<GetPolicyResponse> GetPolicyByCustNameAndDobApi(string name, DateTime DOB)
         {
             var result = new List<GetPolicyResponse>();
@@ -64,6 +67,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User, Admin")]
         public GetPolicyResponse GetPolicyByPNApi(string policyNum)
         {
             var result = new GetPolicyResponse();
@@ -79,6 +83,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "User, Admin")]
         public GetPolicyResponse GetPolicyByCustIdAndpNApi(string custId, string policyNum)
         {
             var result = new GetPolicyResponse();
@@ -94,6 +99,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public IHttpActionResult ApplyForPolicyApi([FromBody] ApplyForPolicyRequest applyForPolicyRequest)
         {
             string message = "Failed";
@@ -105,6 +111,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPut]
+        [Authorize(Roles = "User")]
         public IHttpActionResult UpdatePolicyApi([FromBody]UpdatePolicyRequest updatePolicyRequest)
         {
             string message = "Failed";
@@ -116,6 +123,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin, User")]
         public ViewPolicyResponse ViewPolicyApi(string id)
         {
             var result = new ViewPolicyResponse();

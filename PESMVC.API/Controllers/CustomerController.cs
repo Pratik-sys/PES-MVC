@@ -64,7 +64,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, User")]
         public GetCustomerResponse GetCustomerByIdApi(string id)
         {
             var result = new GetCustomerResponse();
