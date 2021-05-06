@@ -19,7 +19,6 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
         public List<GetPolicyResponse> GetAllPolicyApi()
         {
             var result = new List<GetPolicyResponse>();

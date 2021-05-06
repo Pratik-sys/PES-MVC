@@ -18,8 +18,15 @@ namespace PESMVC.API.Controllers
             _endorsementService = endorsementService;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
-        [Authorize(Roles ="Admin")]
+        public IHttpActionResult test()
+        {
+            return Ok("Hello");
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
         public List<GetEndorsementsResponse> GetAllEndorsementsApi()
         {
             var result = new List<GetEndorsementsResponse>();
@@ -32,7 +39,6 @@ namespace PESMVC.API.Controllers
                 Console.WriteLine(ex.Message);
             }
             return result;
-
         }
 
         [HttpGet]
