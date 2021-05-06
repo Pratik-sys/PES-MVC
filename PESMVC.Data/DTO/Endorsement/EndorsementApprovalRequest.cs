@@ -11,9 +11,13 @@ namespace PESMVC.Data.DTO.Endorsement
     {
         [Required]
         public string endorsementId { get; set; }
+
         [Required]
+        [RegularExpression("^[A-Z0-9]*$", ErrorMessage = "Enter Valid Id")]
         public string policyNumber { get; set; }
+
         [Required]
         public string Flag { get; set; }
     }
-}
+
+    }
