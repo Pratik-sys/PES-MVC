@@ -273,11 +273,18 @@
     <Content Include="Views\Admin\SearchPolicy.cshtml" />
     <Content Include="Views\Admin\InsuranceProduct.cshtml" />
     <Content Include="Views\Partial\_ApplyPolicyView.cshtml" />
+    <Content Include="Views\Customer\ViewUpdate.cshtml" />
+    <Content Include="Views\Customer\EndorsementStatus.cshtml" />
+    <Content Include="Views\Customer\Home.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
+    <Content Include="Views\Customer\SearchPolicy.cshtml" />
+    <Content Include="Views\Customer\ApplyPolicy.cshtml" />
+    <Content Include="Views\Customer\NewPolicy.cshtml" />
+    <Content Include="Views\Customer\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="Views\Customer\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

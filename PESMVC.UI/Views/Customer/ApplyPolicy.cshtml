@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "ApplyPolicy";
+}
+@*Apply policy UI page*@
+<form class="needs-validation" novalidate>
+    @*Calling partial page*@
+    @Html.Partial("~/Views/Partial/_ApplyPolicyView.cshtml")
+    @*Btn DIv*@
+    <div class="form-inline justify-content-center">
+        @*Back Btn*@
+        <div class="btn-group col-md-2">
+            <button type="submit" class="btn btn-dark text-center" id="btn_back">
+                Back   <span class="fas fa-undo"></span>
+            </button>
+        </div>
+        @*submit btn*@
+        <div class="btn-group col-md-2">
+            <button type="submit" class="btn btn-dark text-center" id="btn_apply">
+                Apply <span class="fas fa-plus-square"></span>
+            </button>
+        </div>
+        @*clear btn*@
+        <div class="btn-group col-md-2">
+            <button type="submit" class="btn btn-dark text-center" id="btn_clear">
+                Clear <span class="fas fa-trash"></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+@*Validation script*@
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>
+
+

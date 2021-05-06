@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "SearchPolicy";
+}
+
+
+<form class="mb-5 needs-validation" novalidate>
+
+    <!-- Search Options -->
+    <fieldset>
+        <legend>&nbsp; Search Policy By</legend>
+        <div class="container text-center">
+            <div class="row align-items-center justify-content-center">
+                @Html.Label("Policy Number : ", new { @class = "font-weight-bold mr-3" })
+                @Html.TextBox(" ", null, new { @class = "form-control mr-3", required = "required", @pattern = "[A-Z0-9]{7}" })
+                <button type="submit" class="btn btn-primary text-center">Search <span class="fas fa-search"></span></button>
+                <div class="invalid-feedback">
+                    Please enter a valid Policy Number.
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<!-- Table to display search results -->
+<div>
+    <table class="table table-bordered">
+        <thead class="">
+            <tr>
+                <th>Policy ID</th>
+                <th>Customer ID</th>
+                <th>Product ID</th>
+                <th>Nominee</th>
+                <th>Relation</th>
+                <th>Premium Payment</th>
+                <th>File Path</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+

@@ -13,5 +13,42 @@ namespace PESMVC.UI.Controllers
         {
             return View();
         }
+        public ActionResult ViewUpdate()
+        {
+            return View();
+        }
+        public ActionResult Login()
+        {
+            return View();
+        }
+
+        public ActionResult EndorsementStatus()
+        {
+            return View();
+        }
+        public ActionResult Home()
+        {
+            return View();
+        }
+        public ActionResult SearchPolicy()
+        {
+            return View();
+        }
+        //Sign Up View Page
+        public ActionResult SignUp()
+        {
+            return View();
+        }
+        //New Policy View Page
+        public ActionResult NewPolicy()
+        {
+            return View();
+        }
+        // Apply policy page
+        public ActionResult ApplyPolicy()
+        {
+            return View();
+        }
+
     }
 }
