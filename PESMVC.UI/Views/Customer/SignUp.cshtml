@@ -1,0 +1,131 @@
+﻿
+@{
+    ViewBag.Title = "SignUp";
+}
+
+@*Sign Up UI*@
+<form class="needs-validation" novalidate>
+    <fieldset>
+        <legend>&nbsp; Sign Up </legend>
+        <div class="container d-flex justify-content-center ">
+            <div class="row">
+                <div class="col">
+                    @*Name Lable Text Box*@
+                    <div class="form-inline">
+                        @Html.Label("Name", new { @class = "control-label col-md-3" })
+                        @Html.TextBox(" ", null, new { @class = "form-control", @id = "txt_name", @pattern = "[a-zA-Z ]+", required = "required" })
+                        @*Invalid feedback msg*@
+                        <div class="invalid-feedback col">
+                            Only Characters or Spaces are Allowed
+                        </div>
+                    </div>
+                    <br />
+                    @*Address lable text box*@
+                    <div class="form-inline">
+                        @Html.Label("Address", new { @class = "control-label col-md-3" })
+                        @Html.TextArea(" ", null, new { @class = "form-control", @id = "txt_address", required = "required" })
+                        @*Invalid feedback msg*@
+                        <div class="invalid-feedback col">
+                            Provide Valid Address
+                        </div>
+                    </div>
+                    <br />
+                    @*DOB Lable Text Box*@
+                    <div class="form-inline">
+                        @Html.Label("DOB", new { @class = "control-label col-md-3" })
+                        @Html.TextBox(" ", null, new { @class = "form-control", @id = "txt_dob", @type = "date", @min = "1950-01-01", @max = DateTime.Now.ToString("yyyy-MM-dd"), required = "required" })
+                        @*Invalid feedback msg*@
+                        <div class="invalid-feedback col">
+                            Provide Valid Date of Birth
+                        </div>
+                    </div>
+                    <br />
+                    @*Gender lable dropdown*@
+                    <div class="form-inline">
+                        @Html.Label("Gender", new { @class = "control-label col-md-3" })
+                        @Html.DropDownList(" ", new List<SelectListItem>
+                        {
+                            new SelectListItem { Text = "Male", Value = "1"},
+                            new SelectListItem { Text = "Female", Value = "2"},
+                            new SelectListItem { Text = "Other", Value = "3"}
+                        }, "Select Gender", new { @class = "form-control", @id = "dd_gender", required = "required" })
+                        @*Invalid feedback msg*@
+                        <div class="invalid-feedback col">
+                            Select Valid Gender
+                        </div>
+                    </div>
+                    <br />
+                    @*Telephone lable text box*@
+                    <div class="form-inline">
+                        @Html.Label("Telephone", new { @class = "control-label col-md-3" })
+                        @Html.TextBox(" ", null, new { @class = "form-control", @id = "txt_telephone", @pattern = "[0-9]{10}", required = "required" })
+                        @*Invalid feedback msg*@
+                        <div class="invalid-feedback col">
+                            Please Provide 10 Digits only
+                        </div>
+                    </div>
+                    <br />
+                    @*Smoker Yes no radio button*@
+                    <div class="form-inline">
+                        @Html.Label("Smoker", new { @class = " control-label col-md-3", required = "Required" })
+                        <label class="form-check-label">
+                            @Html.RadioButton("Smoker", "Yes", new { @checked = true, @class = "form-check-input" }) Yes
+                        </label>
+                        <label class="form-check-label">
+                            @Html.RadioButton("Smoker", "No", new { @class = "form -check-input ml-2" }) No
+                        </label>
+                        @*Invalid feedback msg*@
+                        <div class="invalid-feedback ml-3">
+                            Select Whether smoker or not
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    @*Button Div*@
+
+    <div class="form-inline justify-content-center">
+        @*Back btn*@
+        <div class="btn-group col-md-2">
+            <button type="submit" class="btn text-center" id="btn_back">
+                Back   <span class="fas fa-undo"></span>
+            </button>
+        </div>
+        @*Back Next*@
+        <div class="btn-group col-md-2">
+            <button type="submit" class="btn text-center" id="btn_next">
+                Next <span class="fas fa-arrow-right"></span>
+            </button>
+        </div>
+        @*Back Submit*@
+        <div class="btn-group col-md-2">
+            <button type="submit" class="btn text-center" id="btn_submit">
+                Clear <span class="fas fa-trash"></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+
+
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+</script>

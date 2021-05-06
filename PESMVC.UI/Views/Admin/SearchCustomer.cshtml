@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "SearchCustomer";
+}
+
+<form class="mb-5 needs-validation" novalidate>
+
+    <!-- Search Options -->
+    <fieldset>
+        <legend>&nbsp; Search Customer By</legend>
+        <div class="container d-flex justify-content-center align-items-center mb-3">
+            @Html.Label("", new { @class = "font-weight-bold mr-3" })
+            @Html.DropDownList(" ", new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Customer ID", Value = "1"},
+                new SelectListItem { Text = "Customer Name and DOB", Value = "2"}
+            }, "Search Customer By ", new { @class = "mr-3", @id = "search_by" })
+            <button type="submit" class="btn btn-primary text-center">Search <span class="fas fa-search"></span></button>
+        </div>
+
+        <div class="container text-center">
+            <div class="row align-items-center justify-content-center" id="customerId">
+                @Html.Label("Customer ID :", new { @class = "font-weight-bold mr-2" })
+                @Html.TextBox(" ", null, new { @class = "form-control", required = "required", @pattern = "[A-Z0-9]{7}" })
+                <div class="invalid-feedback">
+                    Please enter a valid ID.
+                </div>
+            </div>
+            <div id="nameDob">
+                <div class="customerName row align-items-center justify-content-center mb-3">
+                    @Html.Label("Customer Name :", new { @class = "font-weight-bold mr-2" })
+                    @Html.TextBox(" ", null, new { @class = "form-control", required = "required", @pattern = "[a-zA-Z ]+" })
+                    <div class="invalid-feedback">
+                        Please enter a valid name.
+                    </div>
+                </div>
+                <div class="customerDob row align-items-center justify-content-center">
+                    @Html.Label("Customer DOB :", new { @class = "font-weight-bold mr-2" })
+                    @Html.TextBox(" ", null, new { @class = "form-control", @type = "date", @min = "1950-01-01", @max = DateTime.Now.ToString("yyyy-MM-dd"), required = "required" })
+                    <div class="invalid-feedback">
+                        Please select a valid date.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<!-- Table to display search results -->
+<div>
+    <table class="table table-bordered">
+        <thead class="">
+            <tr>
+                <th>Customer ID</th>
+                <th>Customer Name</th>
+                <th>Address</th>
+                <th>DOB</th>
+                <th>Telephone</th>
+                <th>Gender</th>
+                <th>Smoker</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Customer ID</td>
+                <td>Customer Name</td>
+                <td>Address</td>
+                <td>DOB</td>
+                <td>Telephone</td>
+                <td>Gender</td>
+                <td>Smoker</td>
+            </tr>
+            <tr>
+                <td>Customer ID</td>
+                <td>Customer Name</td>
+                <td>Address</td>
+                <td>DOB</td>
+                <td>Telephone</td>
+                <td>Gender</td>
+                <td>Smoker</td>
+            </tr>
+            <tr>
+                <td>Customer ID</td>
+                <td>Customer Name</td>
+                <td>Address</td>
+                <td>DOB</td>
+                <td>Telephone</td>
+                <td>Gender</td>
+                <td>Smoker</td>
+            </tr>
+            <tr>
+                <td>Customer ID</td>
+                <td>Customer Name</td>
+                <td>Address</td>
+                <td>DOB</td>
+                <td>Telephone</td>
+                <td>Gender</td>
+                <td>Smoker</td>
+            </tr>
+            <tr>
+                <td>Customer ID</td>
+                <td>Customer Name</td>
+                <td>Address</td>
+                <td>DOB</td>
+                <td>Telephone</td>
+                <td>Gender</td>
+                <td>Smoker</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+    // Show and hide search options.
+    $(document).ready(function () {
+        $("#customerId").hide();
+        $("#nameDob").hide();
+        $("#search_by").change(function () {
+            $("#search_by option:selected").each(function () {
+                if ($(this).attr("Value") == "1") {
+                    $("#customerId").show();
+                    $("#nameDob").hide();
+                } else if ($(this).attr("Value") == "2") {
+                    $("#nameDob").show();
+                    $("#customerId").hide();
+                } else {
+                    $("#customerId").hide();
+                    $("#nameDob").hide();
+                }
+            });
+        });
+    });
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+
+</script>
+

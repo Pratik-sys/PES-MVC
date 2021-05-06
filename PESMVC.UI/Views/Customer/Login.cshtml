@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<div class="container-fluid">
+    <h2 class="text-center">Login</h2>
+    <hr />
+    <form class="form-inline needs-validation" novalidate>
+        <fieldset>
+            <legend>&nbsp;Login</legend>
+            @*For username field*@
+            <div class="container d-flex justify-content-center">
+                @Html.Label("Username", new { @class = "col-md-4 control-label" })
+                @Html.TextBox(" ", null, new { @class = "form-control", @pattern = "[A-Z0-9]{7}", required = "Required", id = "username" })
+                <div class="valid-feedback ml-5">
+                </div>
+                <div class="invalid-feedback ml-5">
+                    Please provide valid Username
+                </div>
+            </div>
+            <br />
+            @*For password field*@
+            <div class="container d-flex justify-content-center">
+                @Html.Label("Password", new { @class = "col-md-4 control-label" })
+                @Html.Password(" ", null, new { @class = "form-control", id = "password", @pattern = "^(?=.*?[A-Z])(?=.*?[0-9])(?=.*?[^/w/s]).{7,}$", required = "Required" })
+                <div class="valid-feedback ml-5">
+                </div>
+                <div class="invalid-feedback ml-5">
+                    Password must contain alphabets,numbers and special characters!
+                </div>
+            </div>
+            <br />
+            @*For login type radio buttons*@
+            <div class="container justify-content-center d-flex">
+                @Html.Label("Login Type", new { @class = "col-md-4 control-label ", required = "Required" })
+                <label class="form-check-label">
+                    @Html.RadioButton("Login Type", "Admin", new { @checked = true, @class = "form-check-input" }) Admin
+                </label>
+                <label class="form-check-label">
+                    @Html.RadioButton("Login Type", "Customer", new { @class = "form-check-input" }) Customer
+                </label>
+            </div>
+        </fieldset>
+        <br />
+        @*For login and reset buttons*@
+        <div class="container d-flex justify-content-center mt-3">
+            <div class="btn-group mr-4">
+                <button type="submit" class="btn text-center" value="Login" />Login
+                <span class="fas fa-sign-in-alt"></span>
+            </div>
+            <div class="btn-group mr-4">
+                <button type="submit" class="btn text-center" value="Cancel" Onclick="clearAll()" />Reset
+                <span class="fas fa-redo-alt"></span>
+            </div>
+        </div>
+        @*For new user hyperlink*@
+        <div class="container d-flex justify-content-center mt-3">
+            <p>
+                @Html.ActionLink("New user?", "SignUp")
+            </p>
+        </div>
+        <br />
+        <div class="container">
+            <i class="fab fa-whatsapp mr-5"><b> - 9876543210</b></i>
+            <i class="fab fa-twitter mr-5"> <b> - fs@insurance</b></i>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script>
+    // Validation function for username and password
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+    // Function to reset username and password fields
+    function clearAll() {
+
+        document.getElementById('username').value ="";
+        document.getElementById('password').value ="";
+    }
+</script>
+

@@ -1,0 +1,77 @@
+﻿@*Apply Policy Partial*@
+@*Product details fieldset*@
+<fieldset>
+    <legend>&nbsp;Product Details </legend>
+    @*Select product lable dropdwon*@
+    <div class="form-inline">
+        @Html.Label("Select Product", new { @class = "col-md-7 control-label" })
+        @Html.DropDownList(" ", new List<SelectListItem>
+            {
+            new SelectListItem { Text = "XYZ", Value = "1"},
+
+            }, "Select Product", new { @class = "col-md-3 form-control", @id = "dd_prductList", required = "required" })
+        @*Invalid feedback message*@
+        <div class="invalid-feedback col">
+            Please Select Product
+        </div>
+    </div>
+</fieldset>
+<br />
+@*Policy details fieldset*@
+<fieldset>
+    <legend>&nbsp;Policy Details </legend>
+    @*Nominee name lable textbox*@
+    <div class="form-inline">
+        @Html.Label("Nominee Name", new { @class = "col-md-7 control-label" })
+        @Html.TextBox(" ", null, new { @class = "col-md-3 form-control", @id = "txt_nomineeName", required = "required", @pattern = "[a-zA-Z ]+" })
+        @*Invalid feedback message*@
+        <div class="invalid-feedback col">
+            Please Provide Valid Nominee Name
+        </div>
+    </div>
+    <br />
+    @*Nominee relation lable textbox*@
+    <div class="form-inline">
+        @Html.Label("Nominee Relation", new { @class = "col-md-7 control-label" })
+        @Html.TextBox(" ", null, new { @class = "col-md-3 form-control", @id = "txt_nomineeRelation", required = "required", @pattern = "[a-zA-Z ]+" })
+        @*invalid feedback message*@
+        <div class="invalid-feedback col">
+            Please Provide Valid Nominee Relation
+        </div>
+    </div>
+
+    <br />
+    @*Payment frequency lable dropdown*@
+    <div class="form-inline">
+        @Html.Label("Policy Premium Payment Frequency", new { @class = "col-md-7 control-label" })
+
+        @Html.DropDownList(" ", new List<SelectListItem>
+    {
+        new SelectListItem { Text = "Monthly", Value = "1"},
+        new SelectListItem { Text = "Quaterly", Value = "2"},
+        new SelectListItem { Text = "Yearly", Value = "3"}
+    }, "Select Payment Frequency", new { @class = "col-md-3 form-control", @id = "dd_policyPremiumPaymentFrequency", required = "required" })
+        @*Invalid feedback message*@
+        <div class="invalid-feedback col">
+            Please Select Payment Frequency
+        </div>
+
+    </div>
+</fieldset>
+<br />
+@*Document details fieldset*@
+<fieldset>
+    <legend>&nbsp;Document Details </legend>
+    @*Document lable textbox*@
+    <div class="form-inline">
+        @Html.Label("Document", new { @class = "col-md-7 control-label" })
+        @Html.TextBox(" ", null, new { @class = " form-control form-control-file", @Type = "File", @id = "txt_Document", required = "required" })
+        @*Invalid feedback message*@
+        <div class="invalid-feedback col">
+            Please Add Document
+        </div>
+    </div>
+</fieldset>
+<br />
+
+

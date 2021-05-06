@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "InsuranceProduct";
+}
+@*Insurance Product UI*@
+<link href="../simplePagination.css" rel="stylesheet" type="text/css" />
+<form class="needs-validation" novalidate>
+    <fieldset>
+        <legend>&nbsp;Insurance Product</legend>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    @*ProductID Lable text box*@
+                    <div class="form-inline">
+                        @Html.Label("Product ID", new { @class = "col-md-7 control-label" })
+                        @Html.TextBox(" ", null, new { @class = "col-md-3 form-control", @id = "txt_productId", required = "required", @pattern = "[a-zA-Z0-9]{7}" })
+                        @*Invaldi Feedback message*@
+                        <div class="invalid-feedback col">
+                            Please Provide Product ID
+                        </div>
+                    </div>
+                    <br />
+                    @*Product Name lable text box*@
+                    <div class="form-inline">
+                        @Html.Label("Product Name", new { @class = "col-md-7 control-label" })
+                        @Html.TextBox(" ", null, new { @class = "col-md-3 form-control", @id = "txt_productName", required = "required", @pattern = "[a-zA-Z ]+" })
+                        @*Invalid Feedback message*@
+                        <div class="invalid-feedback col">
+                            Please Provide Product Name
+                        </div>
+                    </div>
+                    <br />
+                    @*Product line lable drop down*@
+                    <div class="form-inline">
+                        @Html.Label("Product Line", new { @class = "col-md-7 control-label" })
+                        @Html.DropDownList(" ", new List<SelectListItem>
+                            {
+                            new SelectListItem { Text = "Life", Value = "1"},
+                            new SelectListItem { Text = "Non-Life", Value = "1"}
+                            }, "Select Product", new { @class = "col-md-3 form-control", @id = "dd_productLine", required = "required" })
+                        @*Invalid Feedback message*@
+                        <div class="invalid-feedback col">
+                            Please Select Product Line
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <br />
+    @*Button Div*@
+    <div class="form-inline justify-content-center">
+        @*Search Button*@
+        <div class="btn-group col-md-2" ,id="btn_search">
+            <button type="submit" class="btn text-center">
+                Search <span class="fas fa-search"></span>
+            </button>
+        </div>
+        @*Add Button*@
+        <div class="btn-group col-md-2">
+            <button type="submit" class="btn text-center" ,id="btn_add">
+                Add <span class="fas fa-plus-circle"></span>
+            </button>
+        </div>
+        @*Update Button*@
+        <div class="btn-group col-md-2">
+            <button type="submit" class="btn text-center" ,id="btn_update">
+                Update <span class="fas fa-edit"></span>
+            </button>
+        </div>
+    </div>
+</form>
+
+<br />
+@*Insurance product table*@
+<table class="table table-bordered paginated" id="tbl_insuranceProduct">
+    <thead>
+        <tr>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Product Line</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Product ID</td>
+            <td>Product Name</td>
+            <td>Product Line</td>
+        </tr>
+        <tr>
+            <td>Product ID</td>
+            <td>Product Name</td>
+            <td>Product Line</td>
+        </tr>
+        <tr>
+            <td>Product ID</td>
+            <td>Product Name</td>
+            <td>Product Line</td>
+        </tr>
+        <tr>
+            <td>Product ID</td>
+            <td>Product Name</td>
+            <td>Product Line</td>
+        </tr>
+        <tr>
+            <td>Product ID</td>
+            <td>Product Name</td>
+            <td>Product Line</td>
+        </tr>
+
+    </tbody>
+</table>
+<div class="pagination">
+
+</div>
+
+
+@*Validation script*@
+<script>
+    (function () {
+        'use strict';
+        window.addEventListener('load', function () {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (form.checkValidity() === false) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        }, false);
+    })();
+
+
+</script>

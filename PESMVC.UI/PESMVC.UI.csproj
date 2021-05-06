@@ -128,6 +128,8 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -273,6 +275,21 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Admin\EndorsmentApproval.cshtml" />
+    <Content Include="Views\Partial\_policyFormView.cshtml" />
+    <Content Include="Views\Admin\EndorsementDetails.cshtml" />
+    <Content Include="Views\Admin\SearchCustomer.cshtml" />
+    <Content Include="Views\Admin\SearchPolicy.cshtml" />
+    <Content Include="Views\Admin\InsuranceProduct.cshtml" />
+    <Content Include="Views\Partial\_ApplyPolicyView.cshtml" />
+    <Content Include="Views\Customer\ViewUpdate.cshtml" />
+    <Content Include="Views\Customer\EndorsementStatus.cshtml" />
+    <Content Include="Views\Customer\Home.cshtml" />
+    <Content Include="Views\Customer\Login.cshtml" />
+    <Content Include="Views\Customer\SearchPolicy.cshtml" />
+    <Content Include="Views\Customer\ApplyPolicy.cshtml" />
+    <Content Include="Views\Customer\NewPolicy.cshtml" />
+    <Content Include="Views\Customer\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
