@@ -1,0 +1,179 @@
+﻿
+@{
+    ViewBag.Title = "SearchPolicy";
+}
+
+<form class="mb-5 needs-validation" novalidate>
+
+    <!-- Search Options -->
+    <fieldset>
+        <legend>&nbsp; Search Policy By</legend>
+        <div class="container d-flex justify-content-center align-items-center mb-3">
+            @Html.Label("", new { @class = "font-weight-bold mr-3" })
+            @Html.DropDownList(" ", new List<SelectListItem>
+            {
+                new SelectListItem { Text = "Policy Number", Value = "1"},
+                new SelectListItem { Text = "Customer ID", Value = "2"},
+                new SelectListItem { Text = "Customer Name and DOB", Value = "3"}
+            }, "Search Policy By ", new { @class = "mr-3", @id = "search_by" })
+            <button type="submit" class="btn btn-primary text-center">Search <span class="fas fa-search"></span></button>
+        </div>
+
+        <div class="container text-center">
+            <div class="row align-items-center justify-content-center" id="policyNum">
+                @Html.Label("Policy Number :", new { @class = "font-weight-bold mr-2" })
+                @Html.TextBox(" ", null, new { @class = "form-control", required = "required", @pattern = "[A-Z0-9]{7}" })
+                <div class="invalid-feedback">
+                    Please enter a valid Policy Number.
+                </div>
+            </div>
+            <div class="row align-items-center justify-content-center" id="customerId">
+                @Html.Label("Customer ID :", new { @class = "font-weight-bold mr-2" })
+                @Html.TextBox(" ", null, new { @class = "form-control", required = "required", @pattern = "[A-Z0-9]{7}" })
+                <div class="invalid-feedback">
+                    Please enter a valid ID.
+                </div>
+            </div>
+            <div id="nameDob">
+                <div class="customerName row align-items-center justify-content-center mb-3">
+                    @Html.Label("Customer Name :", new { @class = "font-weight-bold mr-2" })
+                    @Html.TextBox(" ", null, new { @class = "form-control", required = "required", @pattern = "[a-zA-Z ]+" })
+                    <div class="invalid-feedback">
+                        Please enter a valid name.
+                    </div>
+                </div>
+                <div class="customerDob row align-items-center justify-content-center">
+                    @Html.Label("Customer DOB :", new { @class = "font-weight-bold mr-2" })
+                    @Html.TextBox(" ", null, new { @class = "form-control", @type = "date", @min = "1950-01-01", @max = DateTime.Now.ToString("yyyy-MM-dd"), required = "required" })
+                    <div class="invalid-feedback">
+                        Please select a valid date.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>
+
+<!-- Table to display search results -->
+<div>
+    <table class="table table-bordered">
+        <thead class="">
+            <tr>
+                <th>Policy ID</th>
+                <th>Customer ID</th>
+                <th>Product ID</th>
+                <th>Nominee</th>
+                <th>Relation</th>
+                <th>Premium Payment</th>
+                <th>File Path</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+            <tr>
+                <td>Policy ID</td>
+                <td>Customer ID</td>
+                <td>Product ID</td>
+                <td>Nominee</td>
+                <td>Relation</td>
+                <td>Premium Payment</td>
+                <td>File Path</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script src="~/Scripts/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+    // Show and hide search options.
+    $(document).ready(function () {
+        $("#policyNum").hide();
+        $("#customerId").hide();
+        $("#nameDob").hide();
+        $("#search_by").change(function () {
+            $("#search_by option:selected").each(function () {
+                if ($(this).attr("Value") == "1") {
+                    $("#policyNum").show();
+                    $("#customerId").hide();
+                    $("#nameDob").hide();
+                } else if ($(this).attr("Value") == "2") {
+                    $("#customerId").show();
+                    $("#policyNum").hide();
+                    $("#nameDob").hide();
+                } else if ($(this).attr("Value") == "3") {
+                    $("#nameDob").show();
+                    $("#policyNum").hide();
+                    $("#customerId").hide();
+                } else {
+                    $("#policyNum").hide();
+                    $("#customerId").hide();
+                    $("#nameDob").hide();
+                }
+            });
+        });
+    });
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+                form.addEventListener('submit', function (event) {
+                    if (!form.checkValidity()) {
+                        event.preventDefault()
+                        event.stopPropagation()
+                    }
+
+                    form.classList.add('was-validated')
+                }, false)
+            })
+    })()
+</script>
+
+
+
