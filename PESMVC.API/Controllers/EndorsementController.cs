@@ -18,14 +18,6 @@ namespace PESMVC.API.Controllers
             _endorsementService = endorsementService;
         }
 
-        [Authorize(Roles = "Admin")]
-        [HttpGet]
-        public IHttpActionResult test()
-        {
-            return Ok("Hello");
-        }
-
-        [Authorize(Roles = "Admin")]
         [HttpGet]
         public List<GetEndorsementsResponse> GetAllEndorsementsApi()
         {
@@ -42,7 +34,6 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "User")]
         public List<GetEndorsementsStatusResponse> GetAllEndorsementStatusApi(string id)
         {
             var result = new List<GetEndorsementsStatusResponse>();
@@ -58,7 +49,6 @@ namespace PESMVC.API.Controllers
         }
         
         [HttpPost]
-        [Authorize(Roles = "Admin")]
         public IHttpActionResult EndorsementApprovalApi([FromBody]EndorsementApprovalRequest endorsementApprovalRequest)
         {
             string message = "Failed";

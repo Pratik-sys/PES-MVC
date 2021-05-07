@@ -1,8 +1,8 @@
-﻿
+﻿@model IEnumerable<PESMVC.Data.DTO.Endorsement.GetEndorsementsResponse>
+
 @{
     ViewBag.Title = "EndorsementDetails";
 }
-
 <h2 class="text-center">Endorsement Details</h2>
 <br />
 @*Table to show details of Endorsement*@
@@ -16,34 +16,15 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Endorsement ID</td>
-            <td>Policy ID</td>
-            <td>Field Changes</td>
-            <td>Endorsement Status</td>
-        </tr>
-        <tr>
-            <td>Endorsement ID</td>
-            <td>Policy ID</td>
-            <td>Field Changes</td>
-            <td>Endorsement Status</td>
-        <tr>
-            <td>Endorsement ID</td>
-            <td>Policy ID</td>
-            <td>Field Changes</td>
-            <td>Endorsement Status</td>
-        </tr>
-        <tr>
-            <td>Endorsement ID</td>
-            <td>Policy ID</td>
-            <td>Field Changes</td>
-            <td>Endorsement Status</td>
-        </tr>
-        <tr>
-            <td>Endorsement ID</td>
-            <td>Policy ID</td>
-            <td>Field Changes</td>
-            <td>Endorsement Status</td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.endorsementId)</td>
+                <td>@Html.DisplayFor(modelItem => item.policyNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.FieldChanges)</td>
+                <td>@Html.DisplayFor(modelItem => item.endorsementStatus)</td>
+            </tr>
+         }
     </tbody>
 </table>
 <div class="container d-flex justify-content-center mt-3">

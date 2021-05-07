@@ -1,5 +1,5 @@
 ﻿using Microsoft.Owin.Security.OAuth;
-using PESMVC.Auth.Models;
+using PESMVC.API.Auth.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace PESMVC.Auth
+namespace PESMVC.API.Auth
 {
     public class ApiAuthProvider : OAuthAuthorizationServerProvider
     {

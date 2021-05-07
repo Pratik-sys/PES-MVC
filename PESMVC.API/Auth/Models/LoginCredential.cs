@@ -1,4 +1,4 @@
-namespace PESMVC.Auth.Models
+namespace PESMVC.API.Auth.Models
 {
     using System;
     using System.Collections.Generic;

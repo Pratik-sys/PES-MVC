@@ -131,6 +131,8 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsuranceProductController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -280,7 +282,6 @@
     <Content Include="Views\Admin\EndorsementDetails.cshtml" />
     <Content Include="Views\Admin\SearchCustomer.cshtml" />
     <Content Include="Views\Admin\SearchPolicy.cshtml" />
-    <Content Include="Views\Admin\InsuranceProduct.cshtml" />
     <Content Include="Views\Partial\_ApplyPolicyView.cshtml" />
     <Content Include="Views\Customer\ViewUpdate.cshtml" />
     <Content Include="Views\Customer\EndorsementStatus.cshtml" />
@@ -290,6 +291,8 @@
     <Content Include="Views\Customer\ApplyPolicy.cshtml" />
     <Content Include="Views\Customer\NewPolicy.cshtml" />
     <Content Include="Views\Customer\SignUp.cshtml" />
+    <Content Include="Views\InsuranceProduct\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -307,9 +310,13 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\PESMVC.API\PESMVC.API.csproj">
-      <Project>{1be2ebf2-a704-429e-9a57-22c6c580f6b7}</Project>
-      <Name>PESMVC.API</Name>
+    <ProjectReference Include="..\PESMVC.Data\PESMVC.Data.csproj">
+      <Project>{961406b2-565f-4f0a-9d8e-4982bc4fe2f9}</Project>
+      <Name>PESMVC.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PESMVC.Token.Manager\PESMVC.Token.Manager.csproj">
+      <Project>{64a85261-7dbb-4359-90ad-70fd4a9cce7a}</Project>
+      <Name>PESMVC.Token.Manager</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

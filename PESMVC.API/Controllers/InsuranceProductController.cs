@@ -19,8 +19,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public IHttpActionResult CreateInsuranceProduct([FromBody] CreateInsuranceProductRequest insuranceProductRequest)
+        public IHttpActionResult CreateInsuranceProductApi([FromBody] CreateInsuranceProductRequest insuranceProductRequest)
         {
             string message = "Failed";
             if (_insuranceProductService.CreateInsuranceProduct(insuranceProductRequest))
@@ -31,8 +30,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpPut]
-        [Authorize(Roles = "Admin")]
-        public IHttpActionResult UpdateInsuranceProduct([FromBody] UpdateInsuranceProductRequest insuranceProductRequest)
+        public IHttpActionResult UpdateInsuranceProductApi([FromBody] UpdateInsuranceProductRequest insuranceProductRequest)
         {
             string message = "Failed";
             if (_insuranceProductService.UpdateInsuranceProduct(insuranceProductRequest))
@@ -43,8 +41,7 @@ namespace PESMVC.API.Controllers
         }
     
         [HttpDelete]
-        [Authorize(Roles = "Admin")]
-        public IHttpActionResult DeleteInsuranceProduct(string id)
+        public IHttpActionResult DeleteInsuranceProductApi(string id)
         {
             string message = "Failed";
             if(id != null)
@@ -58,8 +55,7 @@ namespace PESMVC.API.Controllers
         }
 
         [HttpGet]
-        [Authorize(Roles = "Admin")]
-        public GetInsuranceProductResponse GetInsuranceProduct(string id)
+        public GetInsuranceProductResponse GetInsuranceProductApi(string id)
         {
             var result = new GetInsuranceProductResponse();
             try
@@ -73,9 +69,9 @@ namespace PESMVC.API.Controllers
             return result;
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
-        [Authorize(Roles = "Admin,User")]
-        public List<GetInsuranceProductResponse> GetAllInsuranceProducts()
+        public List<GetInsuranceProductResponse> GetAllInsuranceProductsApi()
         {
             var result = new List<GetInsuranceProductResponse>();
             try

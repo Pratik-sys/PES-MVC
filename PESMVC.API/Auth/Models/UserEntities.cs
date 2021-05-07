@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Linq;
 
-namespace PESMVC.Auth.Models
+namespace PESMVC.API.Auth.Models
 {
     public partial class UserEntities : DbContext
     {

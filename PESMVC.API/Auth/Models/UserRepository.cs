@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace PESMVC.Auth.Models
+namespace PESMVC.API.Auth.Models
 {
-    public class UserRepository : IDisposable
+    public class UserRepository: IDisposable
     {
         UserEntities context = new UserEntities();
 

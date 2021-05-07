@@ -7,9 +7,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 
-[assembly: OwinStartup(typeof(PESMVC.Auth.StartUp))]
+[assembly: OwinStartup(typeof(PESMVC.API.Auth.StartUp))]
 
-namespace PESMVC.Auth
+namespace PESMVC.API.Auth
 {
     public class StartUp
     {
